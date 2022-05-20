@@ -1,0 +1,17 @@
+{
+  "name": "cert-blocks",
+  "version": "1.0.0",
+  "description": "WP Gutenberg Blocks for the 240 Certification theme",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js src/index.js"
+  },
+  "author": "Toni-Lee Maitland",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^22.5.0",
+    "sass": "^1.50.1"
+  }
+}

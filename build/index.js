@@ -21,7 +21,8 @@ const {
   registerBlockType
 } = wp.blocks;
 const {
-  Button
+  Button,
+  Dashicon
 } = wp.components;
 const {
   RichText,
@@ -29,7 +30,10 @@ const {
   MediaUpload,
   MediaUploadCheck,
   InnerBlocks,
-  useBlockProps
+  useBlockProps,
+  InspectorControls,
+  ColorPalette,
+  TextControl
 } = wp.blockEditor;
 registerBlockType("cert-blocks/landing-header", {
   title: __('Landing Header'),
@@ -48,13 +52,21 @@ registerBlockType("cert-blocks/landing-header", {
     paragraph: {
       type: "string",
       default: "Add paragraph here"
+    },
+    imgExists: {
+      type: "boolean",
+      default: false
+    },
+    bg_color: {
+      type: 'string',
+      default: '#ffffff'
     }
   },
   edit: props => {
     const headerImageCSS = {
       backgroundImage: `url('${props.attributes.image_url}')`,
       backgroundSize: 'cover',
-      height: '500px'
+      height: "500px"
     };
 
     const get_image = img => {
@@ -65,11 +77,25 @@ registerBlockType("cert-blocks/landing-header", {
       });
     };
 
+    const delete_image = img => {
+      props.setAttributes({
+        image_ID: null,
+        image_url: null,
+        image_alt: null
+      });
+    };
+
+    const addBGColor = hex_bg_color => {
+      props.setAttributes({
+        bg_color: hex_bg_color
+      });
+    };
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "full-header-wp-block-editor"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "edit-full-header"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUpload, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUploadCheck, null, !props.attributes.imgExists && !props.attributes.image_url ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUpload, {
       onSelect: get_image,
       render: _ref => {
         let {
@@ -78,9 +104,18 @@ registerBlockType("cert-blocks/landing-header", {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Button, {
           className: "media-button",
           onClick: open
-        }, props.attributes.image_url);
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(" Choose Background Image"));
       }
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Button, {
+      className: "btn-remove",
+      onClick: delete_image
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Dashicon, {
+      icon: "no",
+      size: "20"
+    }), "\xA0", __(" Remove Background Image")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "image landing-header-image",
       style: headerImageCSS
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -104,23 +139,20 @@ registerBlockType("cert-blocks/landing-header", {
       value: props.attributes.paragraph,
       className: "head-paragraph"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
-      allowedBlocks: ["core/button"] // renderAppender={() => appenderToUse()}
-      ,
+      allowedBlocks: ["core/button"],
       className: "hero-cta-button",
       placeholder: "Add Inner Block - Button"
     })))));
   },
   save: props => {
+    const headerImageCSS = {
+      backgroundImage: `url(${props.attributes.image_url})`
+    };
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "landing-header"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "header-img-bg",
-      style: {
-        backgroundImage: `url('${props.attributes.image_url}')`,
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-        position: "relative"
-      }
+      style: headerImageCSS
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-text-btn"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
@@ -129,9 +161,13 @@ registerBlockType("cert-blocks/landing-header", {
       value: props.attributes.heading
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       value: props.attributes.content
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", {
-      className: "landing-paragraph"
-    }, props.attributes.paragraph), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, null)))));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      tagName: "p",
+      className: "landing-paragraph",
+      value: props.attributes.paragraph
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, null)))));
   }
 });
 

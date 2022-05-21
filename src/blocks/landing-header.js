@@ -1,7 +1,7 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { Button } = wp.components;
-const { RichText, PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps } = wp.blockEditor;
+const { Button, Dashicon } = wp.components;
+const { RichText, PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps, InspectorControls, ColorPalette, TextControl } = wp.blockEditor;
 
 registerBlockType("cert-blocks/landing-header", {
     title: __('Landing Header'),
@@ -21,12 +21,20 @@ registerBlockType("cert-blocks/landing-header", {
           type: "string",
           default: "Add paragraph here"
       },
+      imgExists : {
+          type: "boolean",
+          default: false
+      },
+      bg_color: { 
+          type: 'string', 
+          default: '#ffffff' 
+      },
     },
     edit: (props) => {
         const headerImageCSS = {
 			backgroundImage: `url('${props.attributes.image_url}')`,
             backgroundSize: 'cover',
-            height: '500px'
+            height: "500px"
 		};
 		const get_image = (img) => {
 			props.setAttributes({
@@ -35,20 +43,41 @@ registerBlockType("cert-blocks/landing-header", {
 				image_alt: img.alt,
 			});
 		};
+		const delete_image = (img) => {
+			props.setAttributes({
+				image_ID: null,
+				image_url: null,
+				image_alt: null,
+			});
+		};
+        const addBGColor = ( hex_bg_color ) => {
+            props.setAttributes({
+                bg_color: hex_bg_color 
+            });
+        };
+ 
         
         return (
-            <div className="full-header-wp-block-editor">
+        <div className="full-header-wp-block-editor">
             <div className="edit-full-header">
                 <MediaUploadCheck>
-                    <MediaUpload 
-                    onSelect={ get_image }
-                    render={ ( { open } ) => (
-                        <Button 
-                        className="media-button"
-                        onClick={ open }>{props.attributes.image_url}</Button>
-                    ) }
-                    />
-                    
+                {!props.attributes.imgExists && !props.attributes.image_url ? (
+                <MediaUpload 
+                onSelect={ get_image }
+                render={ ( { open } ) => (
+                    <Button 
+                    className="media-button"
+                    onClick={ open }>
+                        <Dashicon icon="format-image" size="20" />&nbsp;
+                        {__(" Choose Background Image")}
+                    </Button>
+                ) }
+                />    
+            ) : <Button className="btn-remove" onClick={delete_image}>
+                    <Dashicon icon="no" size="20" />&nbsp;
+                        {__(" Remove Background Image")}
+                </Button>}
+                   
                 </MediaUploadCheck>
 
             </div>
@@ -75,43 +104,51 @@ registerBlockType("cert-blocks/landing-header", {
                 {/*CTA Button*/}
                 <InnerBlocks {...useBlockProps}
                     allowedBlocks={["core/button"]}
-                    // renderAppender={() => appenderToUse()}
                     className="hero-cta-button"
                     placeholder="Add Inner Block - Button"
                 />
                    
                 </div>
-
             </div>
+
         </div>
         )
     } ,
     save: ( props ) => {
+        const headerImageCSS = {
+			backgroundImage: `url(${props.attributes.image_url})`
+		};
       return(
         <div className="landing-header">
-				<div
+            <div
                 className="header-img-bg"
-                style={{
-                    backgroundImage: `url('${props.attributes.image_url}')`,
-                    backgroundPosition: "center center",
-                    backgroundSize: "cover",
-                    position: "relative",
-                }}
-				>
+                style={headerImageCSS}
+				> 
 					<div className="hold-text-btn">
+                        {/*Display Header Text*/}
                         <RichText.Content
 						tagName="h1"
                         className="landing-heading"
 						value={props.attributes.heading}
 						/>
+                         {/*Display Header Text styles from toolbar settings*/}
                         <RichText.Content value={props.attributes.content} />
-                        <p className="landing-paragraph">{props.attributes.paragraph}</p>
+                        {/*Display Paragraph Text*/}
+                        <span>
+                         <RichText.Content
+                         tagName="p"
+                         className="landing-paragraph" 
+                         value={props.attributes.paragraph} /> 
+                         {/*Display Paragraph Text styles from toolbar settings*/} 
+                         <RichText.Content value={props.attributes.content}/>
+                        </span>
+                        {/*Display Inner Block CTA Button and its properties from toolbar settings*/}
                         <span {...useBlockProps}>
-                        <InnerBlocks.Content />
+                          <InnerBlocks.Content />
                         </span>
                     </div>
 				</div>
-			</div>
+             </div>   
       );
     }
 });

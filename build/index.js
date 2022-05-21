@@ -24,6 +24,7 @@ const {
   Button
 } = wp.components;
 const {
+  RichText,
   PlainText,
   MediaUpload,
   MediaUploadCheck,
@@ -38,7 +39,7 @@ registerBlockType("cert-blocks/landing-header", {
   attributes: {
     image_url: {
       type: "string",
-      default: "Image goes here"
+      default: "Select Image"
     },
     heading: {
       type: "string",
@@ -47,10 +48,6 @@ registerBlockType("cert-blocks/landing-header", {
     paragraph: {
       type: "string",
       default: "Add paragraph here"
-    },
-    button_url: {
-      type: "string",
-      default: "add button url here"
     }
   },
   edit: props => {
@@ -61,7 +58,6 @@ registerBlockType("cert-blocks/landing-header", {
     };
 
     const get_image = img => {
-      console.log(img);
       props.setAttributes({
         image_ID: img.id,
         image_url: img.url,
@@ -69,7 +65,6 @@ registerBlockType("cert-blocks/landing-header", {
       });
     };
 
-    const propsBlock = useBlockProps();
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "full-header-wp-block-editor"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -83,39 +78,39 @@ registerBlockType("cert-blocks/landing-header", {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Button, {
           className: "media-button",
           onClick: open
-        }, "Open Media Library");
+        }, props.attributes.image_url);
       }
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "image landing-header-image",
       style: headerImageCSS
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "contain-text"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(PlainText, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
       multiline: "h1",
-      placeholder: "Add heading here",
       onChange: new_value => {
         props.setAttributes({
           heading: new_value
         });
       },
+      value: props.attributes.heading,
       className: "head-heading"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(PlainText, {
       multiline: "p",
-      placeholder: "Add paragraph here",
       onChange: new_value => {
         props.setAttributes({
           paragraph: new_value
         });
       },
+      value: props.attributes.paragraph,
       className: "head-paragraph"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
       allowedBlocks: ["core/button"] // renderAppender={() => appenderToUse()}
       ,
-      className: "hero-cta-button"
+      className: "hero-cta-button",
+      placeholder: "Add Inner Block - Button"
     })))));
   },
   save: props => {
-    console.log("save-edit-props:", props);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "landing-header"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -128,9 +123,13 @@ registerBlockType("cert-blocks/landing-header", {
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-text-btn"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", {
-      className: "landing-heading"
-    }, props.attributes.heading), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      tagName: "h1",
+      className: "landing-heading",
+      value: props.attributes.heading
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", {
       className: "landing-paragraph"
     }, props.attributes.paragraph), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, null)))));
   }

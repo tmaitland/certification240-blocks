@@ -1,7 +1,7 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { Button } = wp.components;
-const { PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps } = wp.blockEditor;
+const { RichText, PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps } = wp.blockEditor;
 
 registerBlockType("cert-blocks/landing-header", {
     title: __('Landing Header'),
@@ -11,7 +11,7 @@ registerBlockType("cert-blocks/landing-header", {
     attributes: {
       image_url: {
           type: "string",
-          default: "Image goes here"
+          default: "Select Image"
       },
       heading: {
           type: "string",
@@ -21,10 +21,6 @@ registerBlockType("cert-blocks/landing-header", {
           type: "string",
           default: "Add paragraph here"
       },
-      button_url: {
-          type: "string",
-          default: "add button url here"
-      }
     },
     edit: (props) => {
         const headerImageCSS = {
@@ -33,17 +29,15 @@ registerBlockType("cert-blocks/landing-header", {
             height: '500px'
 		};
 		const get_image = (img) => {
-			console.log(img);
 			props.setAttributes({
 				image_ID: img.id,
 				image_url: img.url,
 				image_alt: img.alt,
 			});
 		};
-       const propsBlock = useBlockProps();
-
+        
         return (
-        <div className="full-header-wp-block-editor">
+            <div className="full-header-wp-block-editor">
             <div className="edit-full-header">
                 <MediaUploadCheck>
                     <MediaUpload 
@@ -51,7 +45,7 @@ registerBlockType("cert-blocks/landing-header", {
                     render={ ( { open } ) => (
                         <Button 
                         className="media-button"
-                        onClick={ open }>Open Media Library</Button>
+                        onClick={ open }>{props.attributes.image_url}</Button>
                     ) }
                     />
                     
@@ -61,21 +55,21 @@ registerBlockType("cert-blocks/landing-header", {
             <div className="image landing-header-image" style={headerImageCSS}>
                 <div className="contain-text">
                 {/*Heading text*/}
-                    <PlainText 
+                    <RichText
                         multiline="h1"
-                        placeholder="Add heading here"
                         onChange={(new_value)=>{
                             props.setAttributes({heading: new_value});
                         }}
+                        value={props.attributes.heading}
                         className="head-heading"
                     />
                 {/**Paragraph text */}
                     <PlainText 
                         multiline="p"
-                        placeholder="Add paragraph here"
                         onChange={(new_value)=>{
                             props.setAttributes({paragraph: new_value});
                         }}
+                        value={props.attributes.paragraph}
                         className="head-paragraph"
                     />
                 {/*CTA Button*/}
@@ -83,6 +77,7 @@ registerBlockType("cert-blocks/landing-header", {
                     allowedBlocks={["core/button"]}
                     // renderAppender={() => appenderToUse()}
                     className="hero-cta-button"
+                    placeholder="Add Inner Block - Button"
                 />
                    
                 </div>
@@ -92,7 +87,6 @@ registerBlockType("cert-blocks/landing-header", {
         )
     } ,
     save: ( props ) => {
-      console.log("save-edit-props:", props)
       return(
         <div className="landing-header">
 				<div
@@ -105,7 +99,12 @@ registerBlockType("cert-blocks/landing-header", {
                 }}
 				>
 					<div className="hold-text-btn">
-                        <h1 className="landing-heading">{props.attributes.heading}</h1>
+                        <RichText.Content
+						tagName="h1"
+                        className="landing-heading"
+						value={props.attributes.heading}
+						/>
+                        <RichText.Content value={props.attributes.content} />
                         <p className="landing-paragraph">{props.attributes.paragraph}</p>
                         <span {...useBlockProps}>
                         <InnerBlocks.Content />

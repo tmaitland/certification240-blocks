@@ -36,11 +36,22 @@ if ( ! defined( 'ABSPATH' ) ) {
    );
 
    wp_register_script(
-       'cert-header-blocks-edit',
+       'cert-blocks-wps-block-js',
        CERT_PLUGIN_URL . '/build/index.js',
        array('wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n' ),
        filemtime(CERT_PLUGIN_DIR_PATH . 'build/index.js')
    );
+
+   // WP Localized globals. Use dynamic PHP stuff in JavaScript via `wpScriptsGlobal` object.
+	wp_localize_script(
+		'cert-blocks-wps-block-js',
+		'wpScriptsGlobal', // Array containing dynamic data for a JS Global.
+		[
+			'pluginDirPath' => plugin_dir_path( __DIR__ ),
+			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
+			// Add more data here that you want to access from `wpScriptsGlobal` object.
+		]
+	);
 
    register_block_type(
     'cert-blocks/website-blocks', array(
@@ -49,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         // Enqueue editor.css in the editor only.
         'editor_style'  => 'cert-blocks-editor-styles',
         // Enqueue full-header.js in the editor only.
-        'editor_script' => 'cert-header-blocks-edit'
+        'editor_script' => 'cert-blocks-wps-block-js'
      )
    );
 

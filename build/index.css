@@ -2,7 +2,13 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/editor.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
-/*landing header block editor styless */
+.rich-text:focus {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+  outline: 2px solid transparent;
+}
+
+/*landing header block editor styles */
 .full-header-wp-block-editor {
   border: 1px solid rgb(94, 94, 94);
 }
@@ -53,30 +59,56 @@
   width: auto;
   height: 30px;
 }
+
+/*three image breaker block editor styles */
+.three-images-block-editor {
+  margin: 4rem 0rem;
+}
+.three-images-block-editor .section-heading-edit {
+  margin: 1rem 0rem;
+}
+.three-images-block-editor .image-container {
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  margin: 1rem 0rem;
+}
+.three-images-block-editor .image-data-container {
+  margin-bottom: 1rem;
+}
+.three-images-block-editor .image-data-container .image-button-selector {
+  border: 1px solid black;
+  border-radius: 6px;
+}
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/styles.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
-/*landing header block frontend styless */
+/*landing header block frontend styles */
+.landing-header {
+  margin-bottom: 2rem;
+}
 .landing-header mark {
   padding: 0em;
 }
 .landing-header .header-img-bg {
+  box-shadow: 0px 0px 140px 0px rgb(255, 255, 255) inset;
   max-width: 100%;
-  height: 500px;
-  box-shadow: 0px 0px 70px 0px rgb(255, 255, 255) inset;
+  height: 650px;
   background-size: cover;
-  background-position: center center;
+  background-position: 230px -80px;
   position: relative;
 }
 .landing-header .header-img-bg .hold-text-btn {
   height: 100%;
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), transparent);
+  margin-left: 2.5rem;
 }
 .landing-header .header-img-bg .hold-text-btn .landing-heading {
   text-align: left;
@@ -84,6 +116,8 @@
   width: 80%;
   font-size: 50px;
   line-height: initial;
+  text-transform: capitalize;
+  margin-bottom: 0px;
 }
 .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
   margin: -2rem 0rem 0rem 2rem;
@@ -101,5 +135,34 @@
   text-decoration: none;
   background-color: rgb(0, 0, 0) !important;
 }
+
+/*three image breaker block frontend styles */
+.three-images-wp-block {
+  padding: 2rem;
+}
+.three-images-wp-block .headline {
+  text-align: center;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+}
+.three-images-wp-block .three-images-container {
+  display: flex;
+  justify-content: space-between;
+}
+.three-images-wp-block .three-images-container .image-link h3 {
+  text-align: center;
+}
+.three-images-wp-block .three-images-container .image-link .the-image {
+  height: 384px;
+  width: 370px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0% 0% 10% 10%;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/*variables*/
 
 /*# sourceMappingURL=index.css.map*/

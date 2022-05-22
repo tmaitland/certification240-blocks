@@ -1,8 +1,12 @@
-/*variables*/
-$white: rgb(255,255,255);
-$gray: rgb(94,94,94);
+@import "./reusable.scss";
 
-/*landing header block editor styless */
+.rich-text:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+/*landing header block editor styles */
 .full-header-wp-block-editor {
     border: 1px solid $gray;
     .landing-header-image {
@@ -44,5 +48,28 @@ $gray: rgb(94,94,94);
             
         }
         
+    }
+}
+
+/*three image breaker block editor styles */
+
+.three-images-block-editor {
+    margin: 4rem 0rem;
+    .section-heading-edit {
+      margin: 1rem 0rem;
+    }
+    .image-container {
+        width: 300px;
+        height: 300px;
+        background-position: center;
+        background-size: cover; 
+        margin: 1rem 0rem;
+    }
+    .image-data-container {
+        margin-bottom: 1rem;
+        .image-button-selector {
+            border: 1px solid black;
+            border-radius: 6px;
+        }
     }
 }

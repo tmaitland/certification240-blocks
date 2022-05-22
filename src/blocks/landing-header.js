@@ -28,7 +28,7 @@ registerBlockType("cert-blocks/landing-header", {
       bg_color: { 
           type: 'string', 
           default: '#ffffff' 
-      },
+      }
     },
     edit: (props) => {
         const headerImageCSS = {

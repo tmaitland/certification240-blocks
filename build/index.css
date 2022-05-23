@@ -2,6 +2,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/editor.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url(fonts/SourceSerifPro-Regular.a43f8192.ttf);
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
+}
 .rich-text:focus {
   border-color: #2271b1;
   box-shadow: 0 0 0 1px #2271b1;
@@ -38,6 +46,7 @@
   background: transparent;
   margin: 0rem 0rem 1rem 1rem;
   width: 85%;
+  font-family: "Source Serif Pro";
 }
 .full-header-wp-block-editor .landing-header-image .contain-text .head-paragraph {
   align-self: flex-start;
@@ -51,13 +60,15 @@
   background: transparent;
   margin: 0rem 0rem 1rem 1rem;
   width: 85%;
+  font-family: "Nunito Sans";
 }
 .full-header-wp-block-editor .landing-header-image .contain-text .block-editor-inner-blocks {
   margin: 0rem 0rem 1rem 1rem;
 }
-.full-header-wp-block-editor .landing-header-image .contain-text .hero-cta-button {
+.full-header-wp-block-editor .landing-header-image .contain-text .cta-button {
   width: auto;
   height: 30px;
+  font-family: "Nunito Sans";
 }
 
 /*three image breaker block editor styles */
@@ -66,6 +77,10 @@
 }
 .three-images-block-editor .section-heading-edit {
   margin: 1rem 0rem;
+  font-family: "Source Serif Pro";
+}
+.three-images-block-editor .image-heading {
+  font-family: "Nunito Sans";
 }
 .three-images-block-editor .image-container {
   width: 300px;
@@ -81,10 +96,45 @@
   border: 1px solid black;
   border-radius: 6px;
 }
+
+/*General Information Text block editor styles */
+/*Image Left Content Right block editor styles */
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text {
+  display: -ms-grid;
+  display: grid;
+  height: 100%;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .content-heading {
+  height: 60px;
+  background: transparent;
+  margin: 2rem 2rem 1rem 1rem;
+  font-family: "Source Serif Pro";
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .content-paragraph {
+  height: 135px;
+  background: transparent;
+  margin: 2rem 2rem 1rem 1rem;
+  font-family: "Nunito Sans";
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .cta-button {
+  width: auto;
+  height: 30px;
+  font-family: "Nunito Sans";
+}
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/styles.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url(fonts/SourceSerifPro-Regular.a43f8192.ttf);
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
+}
 /*landing header block frontend styles */
 .landing-header {
   margin-bottom: 2rem;
@@ -114,21 +164,26 @@
   text-align: left;
   margin-left: 2rem;
   width: 80%;
-  font-size: 50px;
+  font-size: 65px;
   line-height: initial;
   text-transform: capitalize;
   margin-bottom: 0px;
+  font-family: "Source Serif Pro";
 }
 .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
   margin: -2rem 0rem 0rem 2rem;
   width: 80%;
   font-size: 18px;
   font-weight: 400;
+  font-family: "Nunito Sans";
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button {
   margin-left: 2rem;
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button a.wp-block-button__link {
+  padding: 0.75rem 3rem;
+  font-family: "Nunito Sans";
+  font-size: 20px;
   color: rgb(255, 255, 255);
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button a.wp-block-button__link:hover {
@@ -142,27 +197,108 @@
 }
 .three-images-wp-block .headline {
   text-align: center;
-  font-size: 30px;
+  font-size: 45px;
   text-transform: capitalize;
   margin-bottom: 4rem;
+  font-family: "Source Serif Pro";
+  font-weight: 600;
 }
 .three-images-wp-block .three-images-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .three-images-wp-block .three-images-container .image-link h3 {
   text-align: center;
+  font-size: 25px;
+  font-family: "Nunito Sans";
+  font-weight: 600;
 }
 .three-images-wp-block .three-images-container .image-link .the-image {
   height: 384px;
-  width: 370px;
+  width: 400px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0% 0% 10% 10%;
+  margin: 1rem 2rem;
+}
+
+/*General Information Text block frontend styles */
+.hold-text-containers {
+  display: flex;
+  justify-content: center;
+}
+.hold-text-containers .informational-text-container {
+  width: 1000px;
+}
+.hold-text-containers .informational-text-container p {
+  font-size: 18px;
+  font-family: "Nunito Sans";
+}
+.hold-text-containers .informational-text-container .info-text-align-left {
+  text-align: left;
+}
+.hold-text-containers .informational-text-container .info-text-align-center {
+  text-align: center;
+}
+.hold-text-containers .informational-text-container .info-text-align-right {
+  text-align: right;
+}
+
+/*Image Left Content Right block frontend styles */
+.img-left-content-right {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0rem;
+  height: auto;
+}
+.img-left-content-right .image-hold {
+  height: auto;
+  width: 600px;
+  background-position: center;
+  border-radius: 5%;
+}
+.img-left-content-right .text-hold {
+  padding: 2rem 0rem;
+  margin-left: 3rem;
+}
+.img-left-content-right .text-hold .heading-content {
+  line-height: initial;
+  font-family: "Source Serif Pro";
+  font-size: 45px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.img-left-content-right .text-hold p {
+  font-size: 18px;
+  font-family: "Nunito Sans";
+  width: 600px;
+}
+.img-left-content-right .text-hold .paragraph-content {
+  font-size: 18px;
+  font-family: "Nunito Sans";
+  width: 600px;
+}
+.img-left-content-right .text-hold .wp-block-button a.wp-block-button__link {
+  padding: 0.75rem 3rem;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+.img-left-content-right .text-hold .wp-block-button a.wp-block-button__link:hover {
+  text-decoration: none;
+  background-color: rgb(0, 0, 0) !important;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url(fonts/SourceSerifPro-Regular.a43f8192.ttf);
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
+}
 
 /*# sourceMappingURL=index.css.map*/

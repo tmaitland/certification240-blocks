@@ -2,3 +2,14 @@
 $white: rgb(255,255,255);
 $black: rgb(0,0,0);
 $gray: rgb(94,94,94);
+
+@font-face {
+    font-family: "Source Serif Pro" ;
+    src: url("../fonts/SourceSerifPro/SourceSerifPro-Regular.ttf");
+}
+@font-face {
+    font-family: "Nunito Sans" ;
+    // src: url("../fonts/Nunito/NunitoSans-Bold.ttf");
+    src: url("../fonts/Nunito/NunitoSans-Regular.ttf");
+   
+}

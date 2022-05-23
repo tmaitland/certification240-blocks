@@ -26,20 +26,25 @@
                 text-align: left;
                 margin-left: 2rem;
                 width: 80%;
-                font-size: 50px;
+                font-size: 65px;
                 line-height: initial;
                 text-transform: capitalize;
                 margin-bottom: 0px;
+                font-family: "Source Serif Pro";
             }
             .landing-paragraph {
                 margin: -2rem 0rem 0rem 2rem;
                 width: 80%;
                 font-size: 18px;
                 font-weight: 400;
+                font-family: "Nunito Sans";
             }
             .wp-block-button {
                 margin-left: 2rem;
                 a.wp-block-button__link { 
+                    padding: 0.75rem 3rem;
+                    font-family: "Nunito Sans";
+                    font-size: 20px;
                     color: $white;
                     &:hover {
                         text-decoration: none;
@@ -58,24 +63,102 @@
     padding: 2rem; 
     .headline {
         text-align: center;
-        font-size: 30px;
+        font-size: 45px;
         text-transform: capitalize;
         margin-bottom: 4rem;
+        font-family: "Source Serif Pro";
+        font-weight: 600;
     }
     .three-images-container {
        display: flex;
-       justify-content: space-between;
+       justify-content: center;
        .image-link {
            h3 {
             text-align: center;
+            font-size: 25px;
+            font-family: "Nunito Sans";
+            font-weight: 600;
            }
            .the-image {
             height: 384px;
-            width: 370px;
+            width: 400px;
             object-fit: cover;
             border-radius: 0% 0% 10% 10%;
+            margin: 1rem 2rem;
            }
        }
 
     }
+}
+
+/*General Information Text block frontend styles */
+.hold-text-containers {
+    display: flex;
+    justify-content: center;   
+    .informational-text-container {
+        width: 1000px;
+        p {
+            font-size: 18px;
+            font-family: "Nunito Sans";
+        }
+        .info-text-align-left {
+            text-align: left;
+        }
+        .info-text-align-center {
+            text-align: center;
+        }
+        .info-text-align-right {
+            text-align: right;
+        }
+    }
+
+}
+
+/*Image Left Content Right block frontend styles */
+.img-left-content-right {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0rem;
+    height: auto;
+  .image-hold {
+    height: auto;
+    width: 600px;
+    background-position: center;
+    border-radius: 5%;
+  }
+  .text-hold {
+    padding: 2rem 0rem;
+    margin-left: 3rem;
+    .heading-content {
+        line-height: initial;
+        font-family: "Source Serif Pro";
+        font-size: 45px;
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+    p {
+        font-size: 18px;
+        font-family: "Nunito Sans"; 
+        width: 600px;  
+    }
+    .paragraph-content {
+        font-size: 18px;
+        font-family: "Nunito Sans";
+        width: 600px;
+    }
+    .wp-block-button {
+        
+        a.wp-block-button__link { 
+            padding: 0.75rem 3rem;
+            font-family: "Nunito Sans";
+            font-size: 20px;
+            color: $white;
+            &:hover {
+                text-decoration: none;
+                background-color:  $black!important;
+            }
+        }
+            
+    }
+  }
 }

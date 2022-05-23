@@ -27,6 +27,7 @@
                 background: transparent;
                 margin: 0rem 0rem 1rem 1rem;
                 width: 85%;
+                font-family: "Source Serif Pro";
             }
             .head-paragraph {
                 align-self: flex-start;
@@ -37,13 +38,15 @@
                 background: transparent;
                 margin: 0rem 0rem 1rem 1rem;
                 width: 85%;
+                font-family: "Nunito Sans";
             }
             .block-editor-inner-blocks {
                 margin: 0rem 0rem 1rem 1rem;
             }
-            .hero-cta-button {
+            .cta-button {
                 width: auto;
                 height: 30px;
+                font-family: "Nunito Sans";
             }
             
         }
@@ -57,6 +60,10 @@
     margin: 4rem 0rem;
     .section-heading-edit {
       margin: 1rem 0rem;
+      font-family: "Source Serif Pro";
+    }
+    .image-heading {
+        font-family: "Nunito Sans";
     }
     .image-container {
         width: 300px;
@@ -70,6 +77,44 @@
         .image-button-selector {
             border: 1px solid black;
             border-radius: 6px;
+        }
+    }
+}
+
+/*General Information Text block editor styles */
+
+
+
+
+/*Image Left Content Right block editor styles */
+.imgl-contentr-wp-block-editor {
+    .edit-imgl-contentr {
+        .hold-image {
+
+        }
+        .hold-text {
+            display: grid;
+            height: 100%;
+            grid-template-columns: 1fr;
+
+            .content-heading {
+                height: 60px;
+                background: transparent;
+                margin: 2rem 2rem 1rem 1rem;
+                font-family: "Source Serif Pro";
+            }
+
+            .content-paragraph {
+                height: 135px;
+                background: transparent;
+                margin: 2rem 2rem 1rem 1rem;
+                font-family: "Nunito Sans"; 
+            }
+            .cta-button {
+                width: auto;
+                height: 30px;
+                font-family: "Nunito Sans";
+            }
         }
     }
 }

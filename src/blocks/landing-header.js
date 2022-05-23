@@ -1,7 +1,7 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { Button, Dashicon } = wp.components;
-const { RichText, PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps, InspectorControls, ColorPalette, TextControl } = wp.blockEditor;
+const { RichText, PlainText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps } = wp.blockEditor;
 
 registerBlockType("cert-blocks/landing-header", {
     title: __('Landing Header'),
@@ -104,7 +104,7 @@ registerBlockType("cert-blocks/landing-header", {
                 {/*CTA Button*/}
                 <InnerBlocks {...useBlockProps}
                     allowedBlocks={["core/button"]}
-                    className="hero-cta-button"
+                    className="cta-button"
                     placeholder="Add Inner Block - Button"
                 />
                    

@@ -85,8 +85,10 @@ const WSTextControl = props => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+
 
 const {
   __
@@ -100,7 +102,8 @@ const {
 const {
   RichText,
   useBlockProps,
-  BlockControls
+  BlockControls,
+  AlignmentToolbar
 } = wp.blockEditor;
 registerBlockType("cert-blocks/general-info", {
   title: __('General Informational Text'),
@@ -109,32 +112,200 @@ registerBlockType("cert-blocks/general-info", {
   description: __('General information text box to accompany other blocks'),
   attributes: {
     info_text: {
+      type: "array",
+      source: "children",
+      selector: "p",
+      default: "General Information goes here"
+    },
+    alignment: {
       type: "string",
-      default: "Informational text goes here"
+      default: "none"
     }
   },
   edit: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    const onChangeAlignment = newAlignment => {
+      props.setAttributes({
+        alignment: newAlignment === undefined ? 'none' : newAlignment
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps(), {
       className: "informational-text-block-editor"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
-      multiline: "p",
-      className: "informational-text-box-edit",
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(AlignmentToolbar, {
+      value: props.attributes.alignment,
+      onChange: onChangeAlignment
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      className: props.attributes.className,
+      placeholder: props.attributes.info_text,
       value: props.attributes.info_text,
       onChange: new_value => {
         props.setAttributes({
           info_text: new_value
         });
+      },
+      style: {
+        textAlign: props.attributes.alignment
       }
     }));
   },
   save: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    const blockProps = useBlockProps.save();
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      className: "hold-text-containers"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "informational-text-container"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
-      className: "info-text-box",
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       tagName: "p",
+      className: `info-text-align-${props.attributes.alignment}`,
       value: props.attributes.info_text
-    }));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    })));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/blocks/img-left-content-right.js":
+/*!**********************************************!*\
+  !*** ./src/blocks/img-left-content-right.js ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Dashicon,
+  Button,
+  Fragment
+} = wp.components;
+const {
+  RichText,
+  MediaUpload,
+  MediaUploadCheck,
+  InnerBlocks,
+  useBlockProps
+} = wp.blockEditor;
+registerBlockType("cert-blocks/img-left-content-right", {
+  title: __('Left Image Content Right'),
+  icon: "align-left",
+  category: "cert-block",
+  description: __("A left-aligned image with content aligned to the right"),
+  attributes: {
+    image_url: {
+      type: "string",
+      default: "Select Image"
+    },
+    heading: {
+      type: "string",
+      default: "Headline goes here"
+    },
+    paragraph: {
+      type: "string",
+      default: "Add paragraph here"
+    }
+  },
+  edit: props => {
+    const contentImageCSS = {
+      backgroundImage: `url('${props.attributes.image_url}')`,
+      backgroundSize: 'cover',
+      height: '400px'
+    };
+
+    const get_image = img => {
+      props.setAttributes({
+        image_ID: img.id,
+        image_url: img.url,
+        image_alt: img.alt
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "imgl-contentr-wp-block-editor"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "edit-image-button"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUpload, {
+      onSelect: get_image,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Button, {
+          className: "media-button",
+          onClick: open
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(" Choose Content Image"));
+      }
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "edit-imgl-contentr"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-image",
+      style: contentImageCSS
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      multiline: "h2",
+      onChange: new_value => {
+        props.setAttributes({
+          heading: new_value
+        });
+      },
+      value: props.attributes.heading,
+      className: "content-heading"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      multiline: "p",
+      placeholder: props.attributes.paragraph,
+      onChange: new_value => {
+        props.setAttributes({
+          paragraph: new_value
+        });
+      },
+      value: props.attributes.paragraph,
+      className: "content-paragraph"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps(), {
+      allowedBlocks: ["core/button"],
+      className: "cta-button",
+      placeholder: "Add Inner Block - Button"
+    })))));
+  },
+  save: props => {
+    const blockProps = useBlockProps.save();
+    const contentImageCSS = {
+      backgroundImage: `url('${props.attributes.image_url}')`,
+      backgroundSize: 'cover'
+    };
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      className: "img-left-content-right"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "image-hold",
+      style: contentImageCSS
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "text-hold"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      tagName: "h2",
+      className: "heading-content",
+      value: props.attributes.heading
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.paragraph,
+      tagName: "p",
+      className: "paragraph-content"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, null))));
   }
 });
 
@@ -168,10 +339,7 @@ const {
   MediaUpload,
   MediaUploadCheck,
   InnerBlocks,
-  useBlockProps,
-  InspectorControls,
-  ColorPalette,
-  TextControl
+  useBlockProps
 } = wp.blockEditor;
 registerBlockType("cert-blocks/landing-header", {
   title: __('Landing Header'),
@@ -278,7 +446,7 @@ registerBlockType("cert-blocks/landing-header", {
       className: "head-paragraph"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
       allowedBlocks: ["core/button"],
-      className: "hero-cta-button",
+      className: "cta-button",
       placeholder: "Add Inner Block - Button"
     })))));
   },
@@ -684,6 +852,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_landing_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blocks/landing-header */ "./src/blocks/landing-header.js");
 /* harmony import */ var _blocks_three_images__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blocks/three-images */ "./src/blocks/three-images.js");
 /* harmony import */ var _blocks_general_info_text__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/general-info-text */ "./src/blocks/general-info-text.js");
+/* harmony import */ var _blocks_img_left_content_right__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/img-left-content-right */ "./src/blocks/img-left-content-right.js");
+
 
 
 

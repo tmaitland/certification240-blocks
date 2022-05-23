@@ -31,6 +31,7 @@
                 text-transform: capitalize;
                 margin-bottom: 0px;
                 font-family: "Source Serif Pro";
+                color: $brandBlack;
             }
             .landing-paragraph {
                 margin: -2rem 0rem 0rem 2rem;
@@ -38,6 +39,7 @@
                 font-size: 18px;
                 font-weight: 400;
                 font-family: "Nunito Sans";
+                color: $brandBlack;
             }
             .wp-block-button {
                 margin-left: 2rem;
@@ -48,7 +50,7 @@
                     color: $white;
                     &:hover {
                         text-decoration: none;
-                        background-color:  $black!important;
+                        background-color:  $brandBlack!important;
                     }
                 }
                     
@@ -68,6 +70,7 @@
         margin-bottom: 4rem;
         font-family: "Source Serif Pro";
         font-weight: 600;
+        color: $brandBlack;
     }
     .three-images-container {
        display: flex;
@@ -77,11 +80,12 @@
             text-align: center;
             font-size: 25px;
             font-family: "Nunito Sans";
-            font-weight: 600;
+            font-weight: 500;
+            color: $brandBlack;
            }
            .the-image {
             height: 384px;
-            width: 400px;
+            width: 384px;
             object-fit: cover;
             border-radius: 0% 0% 10% 10%;
             margin: 1rem 2rem;
@@ -100,6 +104,7 @@
         p {
             font-size: 18px;
             font-family: "Nunito Sans";
+            color: $brandBlack;
         }
         .info-text-align-left {
             text-align: left;
@@ -135,16 +140,19 @@
         font-size: 45px;
         text-transform: capitalize;
         font-weight: 600;
+        color: $brandBlack;
     }
     p {
         font-size: 18px;
         font-family: "Nunito Sans"; 
         width: 600px;  
+        color: $brandBlack;
     }
     .paragraph-content {
         font-size: 18px;
         font-family: "Nunito Sans";
         width: 600px;
+        color: $brandBlack;
     }
     .wp-block-button {
         
@@ -155,10 +163,74 @@
             color: $white;
             &:hover {
                 text-decoration: none;
-                background-color:  $black!important;
+                background-color:  $brandBlack!important;
             }
         }
             
     }
   }
+}
+
+/*Three Text Boxes block frontend styles */
+.three-text-boxes-wp-block {
+    margin: 6rem 0rem;
+    .three-text-boxes-container {
+        display: flex;
+        justify-content: center;
+        .each-box {
+            width: 380px;
+            margin: 0rem 1rem;
+            .box-heading {      
+                padding: 1rem 0rem;
+                text-align: center;
+                width: auto;
+                height: auto;
+                color: $brandOrange;
+                font-family: "Source Serif Pro";
+                font-size: 45px;
+                font-weight: bold;
+            }
+            .box-paragraph {
+                padding: 0rem 2rem;
+                font-family: "Nunito Sans";
+                font-size: 18px;
+                color: $brandBlack;
+            }
+        }
+    }
+}
+
+/*Text Header CTA block frontend styles */
+.text-hero-cta {
+    margin-bottom: 3rem;
+    height: 400px;
+    .hold-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        .text-heading {
+            font-family: "Source Serif Pro";
+            text-transform: capitalize;
+            font-size: 60px;
+            font-weight: 600;
+            line-height: initial;
+            color: $brandBlack;
+        }
+        .wp-block-button {
+            margin-left: 2rem;
+            a.wp-block-button__link { 
+                padding: 0.75rem 3rem;
+                font-family: "Nunito Sans";
+                font-size: 20px;
+                color: $white;
+                &:hover {
+                    text-decoration: none;
+                    background-color:  $brandBlack!important;
+                }
+            }
+                
+        }
+    }
 }

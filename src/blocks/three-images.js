@@ -2,7 +2,7 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { Button, Dashicon } = wp.components;
 const { Fragment } = wp.element;
-const { RichText, PlainText, MediaUpload, MediaUploadCheck} = wp.blockEditor;
+const { RichText, MediaUpload, MediaUploadCheck} = wp.blockEditor;
 
 import TextControlComponent from "./components/TextControl";
 // import ImgSelector from "../helper-functions/img-selector";

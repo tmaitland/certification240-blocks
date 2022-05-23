@@ -479,6 +479,82 @@ registerBlockType("cert-blocks/landing-header", {
 
 /***/ }),
 
+/***/ "./src/blocks/text-hero-cta.js":
+/*!*************************************!*\
+  !*** ./src/blocks/text-hero-cta.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Button,
+  Dashicon
+} = wp.components;
+const {
+  RichText,
+  InnerBlocks,
+  useBlockProps
+} = wp.blockEditor;
+registerBlockType("cert-blocks/text-hero-cta", {
+  title: __("Text Hero with CTA"),
+  icon: "text",
+  category: "cert-block",
+  description: __("Hero header with text and a CTA button"),
+  attributes: {
+    heading: {
+      type: "string",
+      default: "Heading goes here"
+    }
+  },
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps(), {
+      className: "text-hero-cta-editor"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-content-edit"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      multiline: "h1",
+      onChange: new_value => {
+        props.setAttributes({
+          heading: new_value
+        });
+      },
+      value: props.attributes.heading,
+      className: "text-heading-edit"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, {
+      allowedBlocks: ["core/button"],
+      className: "cta-button",
+      placeholder: "Add Inner Block - Button"
+    })));
+  },
+  save: props => {
+    const blockProps = useBlockProps.save();
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      className: "text-hero-cta"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      tagName: "h1",
+      className: "text-heading",
+      value: props.attributes.heading
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.content
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, null))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/three-images.js":
 /*!************************************!*\
   !*** ./src/blocks/three-images.js ***!
@@ -505,7 +581,6 @@ const {
 } = wp.element;
 const {
   RichText,
-  PlainText,
   MediaUpload,
   MediaUploadCheck
 } = wp.blockEditor;
@@ -669,6 +744,123 @@ registerBlockType("cert-blocks/three-images", {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "the-image",
       src: props.attributes.images[index].image_url
+    }))))))));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/blocks/three-text-boxes.js":
+/*!****************************************!*\
+  !*** ./src/blocks/three-text-boxes.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Dashicon
+} = wp.components;
+const {
+  Fragment
+} = wp.element;
+const {
+  RichText
+} = wp.blockEditor;
+registerBlockType("cert-blocks/three-text-boxes", {
+  title: __("Three Text Boxes"),
+  icon: "text",
+  category: "cert-block",
+  description: __("Three text boxes with a header for each"),
+  attributes: {
+    boxes: {
+      type: "array",
+      default: []
+    },
+    boxCount: {
+      type: "number",
+      default: 0
+    },
+    maxCount: {
+      type: "number",
+      default: 3
+    },
+    notPreview: {
+      type: "boolean",
+      default: true
+    }
+  },
+  edit: props => {
+    let count;
+    props.setAttributes({
+      boxCount: 3
+    });
+
+    if (props.attributes.boxCount > 0 && props.attributes.boxes[0] == undefined) {
+      for (count = 0; count < props.attributes.boxCount; count++) {
+        props.attributes.boxes.push({});
+      }
+    }
+
+    if (props.attributes.boxCount == 0) {
+      for (count = 0; count < props.attributes.maxCount; count++) {
+        props.attributes.boxes.pop();
+      }
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-text-boxes-block-editor"
+    }, props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-boxes-content"
+    }, props.attributes.boxes.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "box-heading-text-edit"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "div",
+      onChange: new_val => {
+        const new_boxes = [...props.attributes.boxes];
+        new_boxes[index].heading = new_val;
+        props.setAttributes({
+          boxes: new_boxes
+        });
+      },
+      value: props.attributes.boxes[index].heading ? props.attributes.boxes[index].heading : `Heading ${index + 1}`
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "box-paragraph-edit"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      value: props.attributes.boxes[index].paragraph ? props.attributes.boxes[index].paragraph : `Paragraph ${index + 1}`,
+      onChange: new_val => {
+        const new_boxes = [...props.attributes.boxes];
+        new_boxes[index].paragraph = new_val;
+        props.setAttributes({
+          boxes: new_boxes
+        });
+      },
+      index: index
+    }))))));
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-text-boxes-wp-block"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-text-boxes-container"
+    }, props.attributes.boxes.map((box, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "each-box"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      className: "box-heading"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.boxes[index].heading
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "box-paragraph"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.boxes[index].paragraph
     }))))))));
   }
 });
@@ -853,6 +1045,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_three_images__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blocks/three-images */ "./src/blocks/three-images.js");
 /* harmony import */ var _blocks_general_info_text__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/general-info-text */ "./src/blocks/general-info-text.js");
 /* harmony import */ var _blocks_img_left_content_right__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/img-left-content-right */ "./src/blocks/img-left-content-right.js");
+/* harmony import */ var _blocks_three_text_boxes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/three-text-boxes */ "./src/blocks/three-text-boxes.js");
+/* harmony import */ var _blocks_text_hero_cta__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/text-hero-cta */ "./src/blocks/text-hero-cta.js");
+
+
 
 
 

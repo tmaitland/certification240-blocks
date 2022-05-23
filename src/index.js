@@ -7,3 +7,5 @@ import "./blocks/landing-header";
 import "./blocks/three-images";
 import "./blocks/general-info-text";
 import "./blocks/img-left-content-right";
+import "./blocks/three-text-boxes";
+import "./blocks/text-hero-cta";

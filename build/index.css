@@ -93,7 +93,7 @@
   margin-bottom: 1rem;
 }
 .three-images-block-editor .image-data-container .image-button-selector {
-  border: 1px solid black;
+  border: 1px solid rgb(75, 75, 75);
   border-radius: 6px;
 }
 
@@ -119,6 +119,34 @@
   font-family: "Nunito Sans";
 }
 .imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .cta-button {
+  width: auto;
+  height: 30px;
+  font-family: "Nunito Sans";
+}
+
+/*Three Text Boxes block editor styles */
+.three-text-boxes-block-editor .three-boxes-content .box-heading-text-edit {
+  height: 60px;
+  background: transparent;
+  font-family: "Source Serif Pro";
+  margin-left: 1rem;
+}
+.three-text-boxes-block-editor .three-boxes-content .box-paragraph-edit {
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  height: 135px;
+  background: transparent;
+  font-family: "Nunito Sans";
+}
+
+/*Text Header CTA block editor styles */
+.text-hero-cta-editor .hold-content-edit .text-heading-edit {
+  height: 60px;
+  margin: 2rem 2rem 1rem 1rem;
+  background: transparent;
+  font-family: "Source Serif Pro";
+}
+.text-hero-cta-editor .hold-content-edit .cta-button {
   width: auto;
   height: 30px;
   font-family: "Nunito Sans";
@@ -169,6 +197,7 @@
   text-transform: capitalize;
   margin-bottom: 0px;
   font-family: "Source Serif Pro";
+  color: rgb(75, 75, 75);
 }
 .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
   margin: -2rem 0rem 0rem 2rem;
@@ -176,6 +205,7 @@
   font-size: 18px;
   font-weight: 400;
   font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button {
   margin-left: 2rem;
@@ -188,7 +218,7 @@
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button a.wp-block-button__link:hover {
   text-decoration: none;
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(75, 75, 75) !important;
 }
 
 /*three image breaker block frontend styles */
@@ -202,6 +232,7 @@
   margin-bottom: 4rem;
   font-family: "Source Serif Pro";
   font-weight: 600;
+  color: rgb(75, 75, 75);
 }
 .three-images-wp-block .three-images-container {
   display: flex;
@@ -211,11 +242,12 @@
   text-align: center;
   font-size: 25px;
   font-family: "Nunito Sans";
-  font-weight: 600;
+  font-weight: 500;
+  color: rgb(75, 75, 75);
 }
 .three-images-wp-block .three-images-container .image-link .the-image {
   height: 384px;
-  width: 400px;
+  width: 384px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0% 0% 10% 10%;
@@ -233,6 +265,7 @@
 .hold-text-containers .informational-text-container p {
   font-size: 18px;
   font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
 }
 .hold-text-containers .informational-text-container .info-text-align-left {
   text-align: left;
@@ -267,16 +300,19 @@
   font-size: 45px;
   text-transform: capitalize;
   font-weight: 600;
+  color: rgb(75, 75, 75);
 }
 .img-left-content-right .text-hold p {
   font-size: 18px;
   font-family: "Nunito Sans";
   width: 600px;
+  color: rgb(75, 75, 75);
 }
 .img-left-content-right .text-hold .paragraph-content {
   font-size: 18px;
   font-family: "Nunito Sans";
   width: 600px;
+  color: rgb(75, 75, 75);
 }
 .img-left-content-right .text-hold .wp-block-button a.wp-block-button__link {
   padding: 0.75rem 3rem;
@@ -286,7 +322,70 @@
 }
 .img-left-content-right .text-hold .wp-block-button a.wp-block-button__link:hover {
   text-decoration: none;
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgb(75, 75, 75) !important;
+}
+
+/*Three Text Boxes block frontend styles */
+.three-text-boxes-wp-block {
+  margin: 6rem 0rem;
+}
+.three-text-boxes-wp-block .three-text-boxes-container {
+  display: flex;
+  justify-content: center;
+}
+.three-text-boxes-wp-block .three-text-boxes-container .each-box {
+  width: 380px;
+  margin: 0rem 1rem;
+}
+.three-text-boxes-wp-block .three-text-boxes-container .each-box .box-heading {
+  padding: 1rem 0rem;
+  text-align: center;
+  width: auto;
+  height: auto;
+  color: rgb(243, 112, 55);
+  font-family: "Source Serif Pro";
+  font-size: 45px;
+  font-weight: bold;
+}
+.three-text-boxes-wp-block .three-text-boxes-container .each-box .box-paragraph {
+  padding: 0rem 2rem;
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+}
+
+/*Text Header CTA block frontend styles */
+.text-hero-cta {
+  margin-bottom: 3rem;
+  height: 400px;
+}
+.text-hero-cta .hold-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.text-hero-cta .hold-content .text-heading {
+  font-family: "Source Serif Pro";
+  text-transform: capitalize;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: initial;
+  color: rgb(75, 75, 75);
+}
+.text-hero-cta .hold-content .wp-block-button {
+  margin-left: 2rem;
+}
+.text-hero-cta .hold-content .wp-block-button a.wp-block-button__link {
+  padding: 0.75rem 3rem;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+.text-hero-cta .hold-content .wp-block-button a.wp-block-button__link:hover {
+  text-decoration: none;
+  background-color: rgb(75, 75, 75) !important;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!

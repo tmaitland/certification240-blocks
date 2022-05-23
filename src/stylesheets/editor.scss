@@ -75,7 +75,7 @@
     .image-data-container {
         margin-bottom: 1rem;
         .image-button-selector {
-            border: 1px solid black;
+            border: 1px solid $brandBlack;
             border-radius: 6px;
         }
     }
@@ -115,6 +115,44 @@
                 height: 30px;
                 font-family: "Nunito Sans";
             }
+        }
+    }
+}
+
+
+/*Three Text Boxes block editor styles */
+.three-text-boxes-block-editor {
+    .three-boxes-content {
+        .box-heading-text-edit {
+            height: 60px;
+            background: transparent;
+            font-family: "Source Serif Pro"; 
+            margin-left: 1rem; 
+
+        }
+        .box-paragraph-edit { 
+            margin-bottom: 2rem;
+            margin-left: 1rem; 
+            height: 135px;
+            background: transparent;
+            font-family: "Nunito Sans"; 
+        }
+    }
+}
+
+/*Text Header CTA block editor styles */
+.text-hero-cta-editor {
+    .hold-content-edit {
+        .text-heading-edit {
+            height: 60px;
+            margin: 2rem 2rem 1rem 1rem;
+            background: transparent;
+            font-family: "Source Serif Pro"; 
+        }
+        .cta-button {
+            width: auto;
+            height: 30px;
+            font-family: "Nunito Sans";
         }
     }
 }

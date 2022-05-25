@@ -750,6 +750,264 @@ registerBlockType("cert-blocks/three-images", {
 
 /***/ }),
 
+/***/ "./src/blocks/three-step-path.js":
+/*!***************************************!*\
+  !*** ./src/blocks/three-step-path.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _general_info_text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./general-info-text */ "./src/blocks/general-info-text.js");
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Dashicon,
+  Button
+} = wp.components;
+const {
+  Fragment
+} = wp.element;
+const {
+  RichText,
+  MediaUpload,
+  MediaUploadCheck,
+  InnerBlocks,
+  useBlockProps
+} = wp.blockEditor;
+
+registerBlockType("cert-blocks/three-step-path", {
+  title: __("Three Step Path with Content"),
+  icon: "editor-ol",
+  category: "cert-block",
+  description: __("List of three content pieces with image left align and text right aligned"),
+  attributes: {
+    section_heading: {
+      type: "string",
+      default: "Section heading goes here"
+    },
+    steps: {
+      type: "array",
+      default: []
+    },
+    stepCount: {
+      type: "number",
+      default: 0
+    },
+    maxCount: {
+      type: "number",
+      default: 3
+    },
+    notPreview: {
+      type: "boolean",
+      default: true
+    },
+    designImgs: {
+      type: "array",
+      default: []
+    },
+    designImgCount: {
+      type: "number",
+      default: 0
+    },
+    maxDImgCount: {
+      type: "number",
+      default: 4
+    }
+  },
+  edit: props => {
+    let count;
+    props.setAttributes({
+      stepCount: 3
+    });
+
+    if (props.attributes.stepCount > 0 && props.attributes.steps[0] == undefined) {
+      for (count = 0; count < props.attributes.stepCount; count++) {
+        props.attributes.steps.push({});
+      }
+    }
+
+    if (props.attributes.stepCount == 0) {
+      for (count = 0; count < props.attributes.maxCount; count++) {
+        props.attributes.steps.pop();
+      }
+    }
+
+    const defaultImage = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/image-placeholder.jpg";
+    let previewImage = [defaultImage];
+    /* display preview image if image is not uploaded*/
+
+    for (count = 0; count < props.attributes.stepCount; count++) {
+      if (props.attributes.steps[count] && props.attributes.steps[count].image_url) {
+        previewImage[count] = props.attributes.steps[count].image_url;
+      }
+
+      if (previewImage[count] === undefined) {
+        previewImage[count] = defaultImage;
+      }
+    }
+    /* display buttons to upload small design images */
+
+
+    let di_count;
+    props.setAttributes({
+      designImgCount: 4
+    });
+
+    if (props.attributes.designImgCount > 0 && props.attributes.designImgs[0] == undefined) {
+      for (di_count = 0; di_count < props.attributes.designImgCount; di_count++) {
+        props.attributes.designImgs.push({});
+      }
+    }
+
+    if (props.attributes.designImgCount == 0) {
+      for (di_count = 0; di_count < props.attributes.maxDImgCount; di_count++) {
+        props.attributes.designImgs.pop();
+      }
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-step-path-block-editor"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      multiline: "h2",
+      onChange: new_value => {
+        props.setAttributes({
+          section_heading: new_value
+        });
+      },
+      value: props.attributes.section_heading,
+      className: "section-heading-edit"
+    }), props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hold-design-img-btns"
+    }, props.attributes.designImgs.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hold-design-image"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: `design-image img-${index + 1}`,
+      src: props.attributes.designImgs[index].image_url
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => {
+        const new_designs = [...props.attributes.designImgs];
+        new_designs[index].image_alt = media.alt;
+        new_designs[index].image_url = media.url;
+        new_designs[index].image_id = index;
+        props.setAttributes({
+          designImgs: new_designs
+        });
+      },
+      type: "image",
+      value: props.attributes.designImgs[index].image_id,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          className: "design-image-button-selector",
+          onClick: open
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(`Choose Design Image ${index + 1}`));
+      }
+    })))))), props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-step-content-edit"
+    }, props.attributes.steps.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-step-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "image-container",
+      style: {
+        backgroundImage: `url('${previewImage[index]}')`
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => {
+        const new_steps = [...props.attributes.steps];
+        new_steps[index].image_alt = media.alt;
+        new_steps[index].image_url = media.url;
+        new_steps[index].image_id = index;
+        props.setAttributes({
+          steps: new_steps
+        });
+      },
+      type: "image",
+      value: props.attributes.steps[index].image_id,
+      render: _ref2 => {
+        let {
+          open
+        } = _ref2;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          className: "image-button-selector",
+          onClick: open
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(`Choose Image ${index + 1}`));
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "subheading-content-edit"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "div",
+      onChange: new_val => {
+        const new_steps = [...props.attributes.steps];
+        new_steps[index].heading = new_val;
+        props.setAttributes({
+          steps: new_steps
+        });
+      },
+      value: props.attributes.steps[index].heading ? props.attributes.steps[index].heading : `Subeading for Step ${index + 1}`,
+      className: "step-heading"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "paragraph-content-edit"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "div",
+      onChange: new_val => {
+        const new_steps = [...props.attributes.steps];
+        new_steps[index].paragraph = new_val;
+        props.setAttributes({
+          steps: new_steps
+        });
+      },
+      value: props.attributes.steps[index].paragraph ? props.attributes.steps[index].paragraph : `Paragraph for Step ${index + 1}`,
+      className: "step-paragraph"
+    })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "add-extra-text"
+    }, "hey")));
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "three-step-path-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      className: "headline",
+      tagName: "h2",
+      value: props.attributes.section_heading
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hold-steps-content"
+    }, props.attributes.designImgs.map((design, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: `the-design-img img-${index + 1}`,
+      src: props.attributes.designImgs[index].image_url
+    })), props.attributes.steps.map((step, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "each-step"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "step-image",
+      style: `background-image: url(${props.attributes.steps[index].image_url})`
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "step-text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.steps[index].heading
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.steps[index].paragraph
+    }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "the-extra-text"
+    }, "hey")));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/three-text-boxes.js":
 /*!****************************************!*\
   !*** ./src/blocks/three-text-boxes.js ***!
@@ -1047,6 +1305,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_img_left_content_right__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/img-left-content-right */ "./src/blocks/img-left-content-right.js");
 /* harmony import */ var _blocks_three_text_boxes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/three-text-boxes */ "./src/blocks/three-text-boxes.js");
 /* harmony import */ var _blocks_text_hero_cta__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/text-hero-cta */ "./src/blocks/text-hero-cta.js");
+/* harmony import */ var _blocks_three_step_path__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/three-step-path */ "./src/blocks/three-step-path.js");
+
 
 
 

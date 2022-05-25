@@ -7,7 +7,7 @@
     }
     margin-bottom: 2rem;
     .header-img-bg {
-        box-shadow: 0px 0px 140px 0px $white inset;
+        box-shadow: 0px 0px 280px 0px $white inset;
         max-width: 100%;
         height: 650px;
         background-size: cover;
@@ -21,7 +21,7 @@
             justify-content: space-evenly;
             align-items: flex-start;
             background: linear-gradient(90deg, $white, $white, $white, $white, transparent);
-            margin-left: 2.5rem;
+            padding-left: 2.5rem;
             .landing-heading {
                 text-align: left;
                 margin-left: 2rem;
@@ -30,7 +30,7 @@
                 line-height: initial;
                 text-transform: capitalize;
                 margin-bottom: 0px;
-                font-family: "Source Serif Pro";
+                font-family: $headingFont;
                 color: $brandBlack;
             }
             .landing-paragraph {
@@ -38,14 +38,14 @@
                 width: 80%;
                 font-size: 18px;
                 font-weight: 400;
-                font-family: "Nunito Sans";
+                font-family: $bodyFont;
                 color: $brandBlack;
             }
             .wp-block-button {
                 margin-left: 2rem;
                 a.wp-block-button__link { 
                     padding: 0.75rem 3rem;
-                    font-family: "Nunito Sans";
+                    font-family: $bodyFont;
                     font-size: 20px;
                     color: $white;
                     &:hover {
@@ -68,7 +68,7 @@
         font-size: 45px;
         text-transform: capitalize;
         margin-bottom: 4rem;
-        font-family: "Source Serif Pro";
+        font-family: $headingFont;
         font-weight: 600;
         color: $brandBlack;
     }
@@ -76,19 +76,23 @@
        display: flex;
        justify-content: center;
        .image-link {
-           h3 {
+         border-radius: 30px;
+         box-shadow: 1px 2px 10px rgb(0 0 0 / 25%);
+         margin: 0rem 2rem;
+            h3 {
             text-align: center;
             font-size: 25px;
-            font-family: "Nunito Sans";
-            font-weight: 500;
             color: $brandBlack;
+            font-family: $bodyFont;
+            font-weight: 500;
+            padding: 1.5rem 2rem;
+            margin-bottom: 0px;
            }
            .the-image {
             height: 384px;
             width: 384px;
             object-fit: cover;
-            border-radius: 0% 0% 10% 10%;
-            margin: 1rem 2rem;
+            border-radius: 0px 0px 30px 30px;
            }
        }
 
@@ -100,10 +104,10 @@
     display: flex;
     justify-content: center;   
     .informational-text-container {
-        width: 1000px;
+        width: 900px;
         p {
             font-size: 18px;
-            font-family: "Nunito Sans";
+            font-family: $bodyFont;
             color: $brandBlack;
         }
         .info-text-align-left {
@@ -136,7 +140,7 @@
     margin-left: 3rem;
     .heading-content {
         line-height: initial;
-        font-family: "Source Serif Pro";
+        font-family: $headingFont;
         font-size: 45px;
         text-transform: capitalize;
         font-weight: 600;
@@ -144,13 +148,13 @@
     }
     p {
         font-size: 18px;
-        font-family: "Nunito Sans"; 
+        font-family: $bodyFont; 
         width: 600px;  
         color: $brandBlack;
     }
     .paragraph-content {
         font-size: 18px;
-        font-family: "Nunito Sans";
+        font-family: $bodyFont;
         width: 600px;
         color: $brandBlack;
     }
@@ -158,7 +162,7 @@
         
         a.wp-block-button__link { 
             padding: 0.75rem 3rem;
-            font-family: "Nunito Sans";
+            font-family: $bodyFont;
             font-size: 20px;
             color: $white;
             &:hover {
@@ -177,22 +181,26 @@
     .three-text-boxes-container {
         display: flex;
         justify-content: center;
-        .each-box {
-            width: 380px;
+        .each-box {            
+            width: 360px;
             margin: 0rem 1rem;
+            padding: 2rem 1rem;
+            border-radius: 30px;
+            box-shadow: 1px 2px 19px rgb(0 0 0 / 15%);
+            height: auto;
             .box-heading {      
                 padding: 1rem 0rem;
                 text-align: center;
                 width: auto;
                 height: auto;
                 color: $brandOrange;
-                font-family: "Source Serif Pro";
+                font-family: $headingFont;
                 font-size: 45px;
                 font-weight: bold;
             }
             .box-paragraph {
                 padding: 0rem 2rem;
-                font-family: "Nunito Sans";
+                font-family: $bodyFont;
                 font-size: 18px;
                 color: $brandBlack;
             }
@@ -211,7 +219,7 @@
         flex-direction: column;
         height: 100%;
         .text-heading {
-            font-family: "Source Serif Pro";
+            font-family: $headingFont;
             text-transform: capitalize;
             font-size: 60px;
             font-weight: 600;
@@ -222,7 +230,7 @@
             margin-left: 2rem;
             a.wp-block-button__link { 
                 padding: 0.75rem 3rem;
-                font-family: "Nunito Sans";
+                font-family: $bodyFont;
                 font-size: 20px;
                 color: $white;
                 &:hover {
@@ -231,6 +239,90 @@
                 }
             }
                 
+        }
+    }
+}
+
+/*Three Step Path block frontend styles*/
+.three-step-path-content {
+    margin: 10rem 0rem 3rem 0rem;
+    position: relative;
+    .headline {
+        font-family: $headingFont;
+        text-align: center;
+        color: $brandBlack;
+        text-transform: capitalize;
+        font-size: 60px;
+    }
+    .the-design-img {
+        position: absolute;
+        height: auto;
+    }
+    /*top-left*/
+    .img-1 {
+        top: 26%;
+        left: 18%;
+        // left: 9%;
+
+    }
+    /*middle-right*/
+    .img-2 {
+        top: 60%;
+        // right: 9%;
+        right: 18%;
+    }
+    /*bottom-left*/
+    .img-3 {
+        // left: 10%;
+        // bottom: 26%;
+        left: 18%;
+        bottom: 27%;
+    }
+    /*bottom-right*/
+    .img-4 {
+        // bottom: 0%;
+        // right: 9%;
+        bottom: 0%;
+        right: 19%;
+    }
+    .hold-steps-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .each-step {
+            width: 1000px;
+            height: auto;
+            padding: 2rem;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 40px;
+            box-shadow: 0px 1px 15px rgb(0 0 0 / 15%);
+            .step-image {
+                height: 200px;
+                width: 200px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .step-text {
+                width: 700px;
+                padding: 1rem 2rem;
+                background: none;
+                height: auto;
+                h3 {
+                    font-family: $bodyFont;
+                    font-size: 35px;
+                    color: $brandOrange;
+                }
+                p {
+                    font-family: $bodyFont;
+                    font-size: 18px;
+                    color: $brandBlack;
+                }
+    
+            }
         }
     }
 }

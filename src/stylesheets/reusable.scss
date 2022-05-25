@@ -3,10 +3,12 @@ $white: rgb(255,255,255);
 $brandBlack: rgb(75, 75, 75);
 $gray: rgb(94,94,94);
 $brandOrange: rgb(243, 112, 55);
+$headingFont: "Tiempos Headline";
+$bodyFont: "Nunito Sans";
 
 @font-face {
-    font-family: "Source Serif Pro" ;
-    src: url("../fonts/SourceSerifPro/SourceSerifPro-Regular.ttf");
+    font-family: "Tiempos Headline" ;
+    src: url("../fonts/TiemposHeadline/TiemposHeadline-Bold.otf");
 }
 @font-face {
     font-family: "Nunito Sans" ;

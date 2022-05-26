@@ -2,7 +2,7 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { Button, Dashicon } = wp.components;
 const { Fragment } = wp.element;
-const { RichText, MediaUpload, MediaUploadCheck} = wp.blockEditor;
+const { RichText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps} = wp.blockEditor;
 
 import TextControlComponent from "./components/TextControl";
 // import ImgSelector from "../helper-functions/img-selector";
@@ -162,6 +162,13 @@ registerBlockType("cert-blocks/three-images", {
                     ))}
                 </div>
             )}
+            {/*Extra Text*/}
+				<label>Add Inner Block - Paragraph</label>
+				<InnerBlocks {...useBlockProps}
+				   allowedBlocks={["core/paragraph"]}
+				   className="the-text-edit"
+				   placeholder="Add Inner Block - Paragraph"
+			   />
           </div>
         </Fragment>
         )
@@ -196,6 +203,11 @@ registerBlockType("cert-blocks/three-images", {
 
                     </Fragment>
                 </div>
+                <div className="hold-extra-text" >
+                    <div className="the-text">
+                        <InnerBlocks.Content  {...useBlockProps} />
+                    </div>
+				</div>
             </div>
            </Fragment> 
         )

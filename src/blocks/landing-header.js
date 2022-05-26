@@ -50,11 +50,6 @@ registerBlockType("cert-blocks/landing-header", {
 				image_alt: null,
 			});
 		};
-        const addBGColor = ( hex_bg_color ) => {
-            props.setAttributes({
-                bg_color: hex_bg_color 
-            });
-        };
  
         
         return (

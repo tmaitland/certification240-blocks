@@ -46,7 +46,7 @@
   background: transparent;
   margin: 0rem 0rem 1rem 1rem;
   width: 85%;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
 }
 .full-header-wp-block-editor .landing-header-image .contain-text .head-paragraph {
   align-self: flex-start;
@@ -77,7 +77,7 @@
 }
 .three-images-block-editor .section-heading-edit {
   margin: 1rem 0rem;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
 }
 .three-images-block-editor .image-heading {
   font-family: "Nunito Sans";
@@ -110,7 +110,7 @@
   height: 60px;
   background: transparent;
   margin: 2rem 2rem 1rem 1rem;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
 }
 .imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .content-paragraph {
   height: 135px;
@@ -128,7 +128,7 @@
 .three-text-boxes-block-editor .three-boxes-content .box-heading-text-edit {
   height: 60px;
   background: transparent;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
   margin-left: 1rem;
 }
 .three-text-boxes-block-editor .three-boxes-content .box-paragraph-edit {
@@ -144,7 +144,7 @@
   height: 60px;
   margin: 2rem 2rem 1rem 1rem;
   background: transparent;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
 }
 .text-hero-cta-editor .hold-content-edit .cta-button {
   width: auto;
@@ -157,7 +157,7 @@
   height: 60px;
   margin: 2rem 2rem 1rem 1rem;
   background: transparent;
-  font-family: "Source Serif Pro";
+  font-family: "Tiempos Headline";
   padding: 1rem;
 }
 .three-step-path-block-editor .hold-design-img-btns {
@@ -211,6 +211,39 @@
   background: transparent;
   font-family: "Nunito Sans";
   padding: 1rem;
+}
+
+/*Article with image block editor styles*/
+.article-with-image-block-editor .edit-article-text .article-heading-edit {
+  font-family: "Tiempos Headline";
+}
+.article-with-image-block-editor .edit-article-text .media-button {
+  margin: 1rem 0rem;
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 5px;
+}
+.article-with-image-block-editor .edit-article-text .hold-image-edit {
+  height: auto;
+  width: 300px;
+  margin: 1rem 0rem;
+}
+.article-with-image-block-editor .edit-article-text .hold-image-edit img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.article-with-image-block-editor .edit-article-text .the-text-edit {
+  margin-bottom: 3rem;
+  height: auto;
+  background: transparent;
+  font-family: "Nunito Sans";
+  padding: 1rem;
+}
+
+/*Blockquote block editor styles*/
+.blockquote-editor span {
+  font-family: "Nunito Sans";
 }
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/styles.scss ***!
@@ -319,6 +352,19 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0px 0px 30px 30px;
+}
+.three-images-wp-block .hold-extra-text {
+  display: flex;
+  justify-content: center;
+}
+.three-images-wp-block .hold-extra-text .the-text {
+  width: 700px;
+  margin-top: 2rem;
+}
+.three-images-wp-block .hold-extra-text .the-text p {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  color: rgb(75, 75, 75);
 }
 
 /*General Information Text block frontend styles */
@@ -473,7 +519,7 @@
   text-align: center;
   color: rgb(75, 75, 75);
   text-transform: capitalize;
-  font-size: 60px;
+  font-size: 45px;
 }
 .three-step-path-content .the-design-img {
   position: absolute;
@@ -489,10 +535,10 @@
 }
 .three-step-path-content .img-3 {
   left: 18%;
-  bottom: 27%;
+  bottom: 36%;
 }
 .three-step-path-content .img-4 {
-  bottom: 0%;
+  bottom: 13%;
   right: 19%;
 }
 .three-step-path-content .hold-steps-content {
@@ -533,6 +579,110 @@
   font-family: "Nunito Sans";
   font-size: 18px;
   color: rgb(75, 75, 75);
+}
+.three-step-path-content .hold-extra-text {
+  display: flex;
+  justify-content: center;
+}
+.three-step-path-content .hold-extra-text .the-text {
+  width: 700px;
+}
+.three-step-path-content .hold-extra-text .the-text p {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+}
+
+/*Article with image block frontend styles*/
+.article-with-image {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.article-with-image .article-with-image-content {
+  width: 900px;
+  margin: 5rem 0rem;
+  padding: 0rem 10rem;
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 40px;
+}
+.article-with-image .article-with-image-content .article-text-content {
+  width: 800px;
+  display: block;
+  margin: auto;
+}
+.article-with-image .article-with-image-content .article-text-content h2 {
+  font-family: "Tiempos Headline";
+  text-align: center;
+  color: rgb(75, 75, 75);
+  text-transform: capitalize;
+  font-size: 45px;
+  width: 500px;
+  line-height: initial;
+  margin: 4rem auto;
+}
+.article-with-image .article-with-image-content .article-text-content p {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+}
+.article-with-image .article-with-image-content .article-image img {
+  margin-left: auto;
+  position: relative;
+  display: block;
+}
+
+/*Blockquote block frontend styles*/
+.block-quote {
+  height: auto;
+  padding: 4rem;
+  margin: 2rem 0rem 5rem;
+}
+.block-quote .block-quote-content {
+  z-index: 1;
+  width: 1000px;
+  display: block;
+  margin: 4rem auto;
+  position: relative;
+}
+.block-quote .block-quote-content .quote-images {
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+  width: 100%;
+}
+.block-quote .block-quote-content .quote-images .left-qt-img {
+  width: 300px;
+  height: auto;
+}
+.block-quote .block-quote-content .quote-images .right-qt-img {
+  width: 300px;
+  height: auto;
+  position: relative;
+  top: 6rem;
+}
+.block-quote .block-quote-content .wp-block-quote {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 0rem;
+  position: absolute;
+  flex-direction: column;
+  border-left: 0;
+  align-items: center;
+  text-align: center;
+}
+.block-quote .block-quote-content .wp-block-quote p {
+  font-family: "Nunito Sans";
+  width: 700px;
+  color: rgb(75, 75, 75);
+  font-size: 35px;
+}
+.block-quote .block-quote-content .wp-block-quote cite {
+  font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
+  font-size: 14px;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!

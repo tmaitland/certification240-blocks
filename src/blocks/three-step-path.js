@@ -4,8 +4,6 @@ const { Dashicon, Button } = wp.components;
 const { Fragment } = wp.element;
 const { RichText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps} = wp.blockEditor;
 
-import "./general-info-text";
-
 registerBlockType("cert-blocks/three-step-path", {
     title: __("Three Step Path with Content"),
     icon: "editor-ol",
@@ -215,10 +213,14 @@ registerBlockType("cert-blocks/three-step-path", {
 
 					</div>
 				)}
-				<div className="add-extra-text" >
-											hey
-				</div>
-				</div>
+				{/*Extra Text*/}
+				<label>Add Inner Block - Paragraph</label>
+				<InnerBlocks {...useBlockProps}
+				   allowedBlocks={["core/paragraph"]}
+				   className="the-text-edit"
+				   placeholder="Add Inner Block - Paragraph"
+			   />
+			  </div>
 			</Fragment>
 		);
 	},
@@ -262,9 +264,11 @@ registerBlockType("cert-blocks/three-step-path", {
 						))}
 
 					</div>
-					<div className="the-extra-text" >
-											hey
-				</div>
+					<div className="hold-extra-text" >
+						<div className="the-text">
+						 <InnerBlocks.Content  {...useBlockProps} />
+						</div>
+					</div>
 				</div>
 					
 			</Fragment>

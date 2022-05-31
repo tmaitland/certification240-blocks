@@ -14,7 +14,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+// File Includes
+include_once 'includes/class-acfw-register-block.php';
 
+// Define Constants.
+ define( 'ACFB_BLOCK_TEMPLATE_PATH', plugin_dir_path( __FILE__ ) . '/blocks-template/' );
  define('CERT_PLUGIN_URL', plugins_url( 'cert-blocks'));
  define('CERT_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 

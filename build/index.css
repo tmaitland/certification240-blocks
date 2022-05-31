@@ -10,6 +10,25 @@
   font-family: "Nunito Sans";
   src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
 }
+/* Tabs */
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
 .rich-text:focus {
   border-color: #2271b1;
   box-shadow: 0 0 0 1px #2271b1;
@@ -257,6 +276,25 @@
   font-family: "Nunito Sans";
   src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
 }
+/* Tabs */
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
 /*landing header block frontend styles */
 .landing-header {
   margin-bottom: 2rem;
@@ -695,6 +733,24 @@
 @font-face {
   font-family: "Nunito Sans";
   src: url(fonts/NunitoSans-Regular.a427ddbe.ttf);
+}
+/* Tabs */
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
 }
 
 /*# sourceMappingURL=index.css.map*/

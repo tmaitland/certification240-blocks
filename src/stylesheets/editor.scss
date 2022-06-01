@@ -88,32 +88,68 @@
 
 /*Image Left Content Right block editor styles */
 .imgl-contentr-wp-block-editor {
-    .edit-imgl-contentr {
-        .hold-image {
-
+    .edit-image-button {
+        .components-button {
+            border: 1px solid $brandBlack;
+            border-radius: 9px;
         }
-        .hold-text {
-            display: grid;
-            height: 100%;
-            grid-template-columns: 1fr;
-
-            .content-heading {
-                height: 60px;
-                background: transparent;
-                margin: 2rem 2rem 1rem 1rem;
-                font-family: $headingFont;
+    }
+    .edit-imgl-contentr {
+        .components-base-control  {
+            margin: 1rem 0rem;
+        }
+        .radio-select {
+            margin: 2rem 0rem;
+            height: 200px;
+        }
+        .hold-content.light-green {
+            background-color: #EEF8F7;
+            height: 431px;
+        }
+        .hold-content.light-pink {
+            background-color: #FFF9F7;
+            height: 676px;
+        }
+        .hold-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .hold-image.tall {
+                height: 517px;
+                width: 569px;
             }
-
-            .content-paragraph {
-                height: 135px;
-                background: transparent;
-                margin: 2rem 2rem 1rem 1rem;
-                font-family: $bodyFont; 
+            .hold-image.short {
+                height: 388px;
+                width: 583px;
             }
-            .cta-button {
-                width: auto;
-                height: 30px;
-                font-family: $bodyFont;
+            .hold-text {
+                display: flex;
+                height: auto;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                .content-heading {
+                    height: 60px;
+                    background: transparent;
+                    margin: 2rem 2rem 1rem 1rem;
+                    font-family: $headingFont;
+                }
+    
+                .content-paragraph {
+                    height: 135px;
+                    background: transparent;
+                    margin: 2rem 2rem 1rem 1rem;
+                    font-family: $bodyFont; 
+                }
+                .block-editor-inner-blocks {
+                    display: flex;
+                    margin-left: 1rem;
+                    .cta-button {
+                        width: auto;
+                        height: 30px;
+                        font-family: $bodyFont;
+                    }
+                }
             }
         }
     }

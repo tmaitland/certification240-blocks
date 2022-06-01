@@ -118,26 +118,62 @@
 
 /*General Information Text block editor styles */
 /*Image Left Content Right block editor styles */
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text {
-  display: -ms-grid;
-  display: grid;
-  height: 100%;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
+.imgl-contentr-wp-block-editor .edit-image-button .components-button {
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 9px;
 }
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .content-heading {
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .components-base-control {
+  margin: 1rem 0rem;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .radio-select {
+  margin: 2rem 0rem;
+  height: 200px;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content.light-green {
+  background-color: #EEF8F7;
+  height: 431px;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content.light-pink {
+  background-color: #FFF9F7;
+  height: 676px;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-image.tall {
+  height: 517px;
+  width: 569px;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-image.short {
+  height: 388px;
+  width: 583px;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text {
+  display: flex;
+  height: auto;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text .content-heading {
   height: 60px;
   background: transparent;
   margin: 2rem 2rem 1rem 1rem;
   font-family: "Tiempos Headline";
 }
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .content-paragraph {
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text .content-paragraph {
   height: 135px;
   background: transparent;
   margin: 2rem 2rem 1rem 1rem;
   font-family: "Nunito Sans";
 }
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-text .cta-button {
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text .block-editor-inner-blocks {
+  display: flex;
+  margin-left: 1rem;
+}
+.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text .block-editor-inner-blocks .cta-button {
   width: auto;
   height: 30px;
   font-family: "Nunito Sans";
@@ -429,17 +465,33 @@
 }
 
 /*Image Left Content Right block frontend styles */
+.img-left-content-right.light-green {
+  background-color: #EEF8F7;
+  height: 431px;
+}
+
+.img-left-content-right.light-pink {
+  background-color: #FFF9F7;
+  height: 676px;
+}
+
 .img-left-content-right {
   display: flex;
   justify-content: center;
-  margin: 4rem 0rem;
-  height: auto;
+  align-items: center;
+  margin: 8rem 0rem;
 }
 .img-left-content-right .image-hold {
-  height: auto;
-  width: 600px;
   background-position: center;
   border-radius: 5%;
+}
+.img-left-content-right .image-hold.tall {
+  height: 517px;
+  width: 569px;
+}
+.img-left-content-right .image-hold.short {
+  height: 388px;
+  width: 583px;
 }
 .img-left-content-right .text-hold {
   padding: 2rem 0rem;

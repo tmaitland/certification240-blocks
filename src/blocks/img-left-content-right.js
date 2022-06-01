@@ -1,6 +1,7 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { Dashicon, Button, Fragment } = wp.components;
+const { useState } = wp.element;
+const { Dashicon, Button, Fragment, RadioControl } = wp.components;
 const { RichText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps} = wp.blockEditor;
 
 registerBlockType("cert-blocks/img-left-content-right", {
@@ -20,14 +21,22 @@ registerBlockType("cert-blocks/img-left-content-right", {
         paragraph: {
             type: "string",
             default: "Add paragraph here"
+        },
+        options: {
+            type: "string",
+            default: "#FFF9F7"
+        },
+        image_height: {
+            type: "string",
+            default: "388px"
         }
     },
 
     edit: (props) => {
+
         const contentImageCSS = {
 			backgroundImage: `url('${props.attributes.image_url}')`,
             backgroundSize: 'cover',
-            height: '400px'
 		};
         const get_image = (img) => {
 			props.setAttributes({
@@ -36,7 +45,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
 				image_alt: img.alt,
 			});
 		}; 
-
+       
         return (
 
                 <div className="imgl-contentr-wp-block-editor">
@@ -56,35 +65,71 @@ registerBlockType("cert-blocks/img-left-content-right", {
                     </MediaUploadCheck>
                    </div>
                     <div className="edit-imgl-contentr">
-                        <div className="hold-image" style={contentImageCSS}>   
+                        <div className="radio-select">
+                            <RadioControl
+                                label="Choose background color: "
+                                selected={props.attributes.options}
+                                options={[
+                                    { label: "Light Pink Background", value: "#FFF9F7"},
+                                    { label: "Light Green Background", value: "#EEF8F7"},
+                                ]}
+                                onChange={ (new_value)=> {
+                                    props.setAttributes({
+                                        options: new_value
+                                    })
+                                }}
+                                />
+                            <RadioControl
+                                label="Choose image height: "
+                                selected={props.attributes.image_height}
+                                options={[
+                                    { label: "Tall Image", value: "517px"},
+                                    { label: "Short Image", value: "388px"},
+                                ]}
+                                onChange={ (new_value)=> {
+                                    props.setAttributes({
+                                        image_height: new_value
+                                    })
+                                }}
+                                />
+                                
                         </div>
-                        <div className="hold-text">
-                          {/*Heading text*/}
-                          <RichText
-                                multiline="h2"
-                                onChange={(new_value)=>{
-                                    props.setAttributes({heading: new_value});
-                                }}
-                                value={props.attributes.heading}
-                                className="content-heading"
-                            />
-                            {/**Paragraph text */}
-                            <RichText 
-                                multiline="p"
-                                placeholder={props.attributes.paragraph}
-                                onChange={(new_value)=>{
-                                    props.setAttributes({paragraph: new_value});
-                                }}
-                                value={props.attributes.paragraph}
-                                className="content-paragraph"
-                            />
-                            {/*CTA Button*/}
-                            <InnerBlocks {...useBlockProps()}
-                                allowedBlocks={["core/button"]}
-                                className="cta-button"
-                                placeholder="Add Inner Block - Button"
-                            />    
-                        </div>    
+                        <div className={props.attributes.options === "#EEF8F7" 
+                            ? "hold-content light-green" 
+                            : "hold-content light-pink" }>
+                            <div className={props.attributes.image_height === "388px" 
+                                            ? "hold-image short" 
+                                            : "hold-image tall"} 
+                                style={contentImageCSS}>   
+                            </div>
+                            <div className="hold-text">
+                            {/*Heading text*/}
+                            <RichText
+                                    multiline="h2"
+                                    onChange={(new_value)=>{
+                                        props.setAttributes({heading: new_value});
+                                    }}
+                                    value={props.attributes.heading}
+                                    className="content-heading"
+                                />
+                                {/**Paragraph text */}
+                                <RichText 
+                                    multiline="p"
+                                    placeholder={props.attributes.paragraph}
+                                    onChange={(new_value)=>{
+                                        props.setAttributes({paragraph: new_value});
+                                    }}
+                                    value={props.attributes.paragraph}
+                                    className="content-paragraph"
+                                />
+                                {/*CTA Button*/}
+                                <InnerBlocks {...useBlockProps()}
+                                    allowedBlocks={["core/button"]}
+                                    className="cta-button"
+                                    placeholder="Add Inner Block - Button"
+                                />    
+                            </div>  
+                        </div>  
                     </div>
                 </div>
         )
@@ -100,8 +145,15 @@ registerBlockType("cert-blocks/img-left-content-right", {
 		};
 
         return (
-            <div {...blockProps} className="img-left-content-right">
-                <div className="image-hold" style={contentImageCSS}>
+            <div {...blockProps} 
+                className={props.attributes.options === "#EEF8F7" 
+                ? "img-left-content-right light-green" 
+                : "img-left-content-right light-pink" }>
+
+                <div className={props.attributes.image_height === "388px" 
+                                ? "image-hold short" 
+                                : "image-hold tall"}  
+                    style={contentImageCSS}>
                 </div>
                 <div className="text-hold">
                     <RichText.Content

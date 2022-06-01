@@ -137,16 +137,30 @@
 }
 
 /*Image Left Content Right block frontend styles */
+.img-left-content-right.light-green {
+    background-color: #EEF8F7;
+    height: 431px;
+}
+.img-left-content-right.light-pink {
+    background-color: #FFF9F7;
+    height: 676px;
+}
 .img-left-content-right {
     display: flex;
     justify-content: center;
-    margin: 4rem 0rem;
-    height: auto;
+    align-items: center;
+    margin: 8rem 0rem;
   .image-hold {
-    height: auto;
-    width: 600px;
     background-position: center;
     border-radius: 5%;
+  }
+  .image-hold.tall {
+    height: 517px;
+    width: 569px;
+  }
+  .image-hold.short {
+    height: 388px;
+    width: 583px;
   }
   .text-hold {
     padding: 2rem 0rem;

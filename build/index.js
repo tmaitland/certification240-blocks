@@ -513,9 +513,13 @@ const {
   registerBlockType
 } = wp.blocks;
 const {
+  useState
+} = wp.element;
+const {
   Dashicon,
   Button,
-  Fragment
+  Fragment,
+  RadioControl
 } = wp.components;
 const {
   RichText,
@@ -541,13 +545,20 @@ registerBlockType("cert-blocks/img-left-content-right", {
     paragraph: {
       type: "string",
       default: "Add paragraph here"
+    },
+    options: {
+      type: "string",
+      default: "#FFF9F7"
+    },
+    image_height: {
+      type: "string",
+      default: "388px"
     }
   },
   edit: props => {
     const contentImageCSS = {
       backgroundImage: `url('${props.attributes.image_url}')`,
-      backgroundSize: 'cover',
-      height: '400px'
+      backgroundSize: 'cover'
     };
 
     const get_image = img => {
@@ -579,7 +590,41 @@ registerBlockType("cert-blocks/img-left-content-right", {
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "edit-imgl-contentr"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "hold-image",
+      className: "radio-select"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose background color: ",
+      selected: props.attributes.options,
+      options: [{
+        label: "Light Pink Background",
+        value: "#FFF9F7"
+      }, {
+        label: "Light Green Background",
+        value: "#EEF8F7"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          options: new_value
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose image height: ",
+      selected: props.attributes.image_height,
+      options: [{
+        label: "Tall Image",
+        value: "517px"
+      }, {
+        label: "Short Image",
+        value: "388px"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          image_height: new_value
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: props.attributes.options === "#EEF8F7" ? "hold-content light-green" : "hold-content light-pink"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: props.attributes.image_height === "388px" ? "hold-image short" : "hold-image tall",
       style: contentImageCSS
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-text"
@@ -606,7 +651,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
       allowedBlocks: ["core/button"],
       className: "cta-button",
       placeholder: "Add Inner Block - Button"
-    })))));
+    }))))));
   },
   save: props => {
     const blockProps = useBlockProps.save();
@@ -615,9 +660,9 @@ registerBlockType("cert-blocks/img-left-content-right", {
       backgroundSize: 'cover'
     };
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
-      className: "img-left-content-right"
+      className: props.attributes.options === "#EEF8F7" ? "img-left-content-right light-green" : "img-left-content-right light-pink"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "image-hold",
+      className: props.attributes.image_height === "388px" ? "image-hold short" : "image-hold tall",
       style: contentImageCSS
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "text-hold"

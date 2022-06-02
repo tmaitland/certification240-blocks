@@ -461,3 +461,40 @@
         }
     }
 }
+
+/* Two Images with Captions block frontend styles */
+.two-images-with-captions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0rem;
+    padding: 2rem 0rem;
+    .hold-the-images-captions {
+        display: flex;
+        width: auto;
+        .each-image-caption {
+            margin: 0rem 3rem;
+            .the-image {
+                img {
+                width: 569px;
+                height: 268px;
+                border-radius: 40px;
+                box-shadow: -1px 2px 20px rgb(35 35 35 / 15%);
+                }
+            }
+            .the-text {
+                width: 569px;
+                height: auto;
+                p {
+                    margin-left: 0.25rem; 
+                    font-family: $bodyFont;
+                    font-size: 18px;  
+                }
+                .sub-paragraph {  
+                    margin-left: 0.5rem;
+                    font-family: $bodyFont;  
+                }
+            }
+        }
+    }
+}

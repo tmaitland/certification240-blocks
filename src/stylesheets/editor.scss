@@ -304,4 +304,21 @@
     }
 }
 
-
+/* Two Images with Captions block editor styles */
+.two-images-with-caption-editor {
+    .hold-content {
+        display: flex;
+        .each-content {
+            margin: 4rem 1.5rem;
+            .image-container {
+                border: 1px solid $brandBlack;
+                border-radius: 30px;
+            }
+            .image-button-selector {
+                border: 1px solid $brandBlack;
+                border-radius: 9px; 
+                margin: 1rem 0rem;  
+            }
+        }
+    }
+}

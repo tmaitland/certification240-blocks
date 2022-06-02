@@ -1570,6 +1570,175 @@ registerBlockType("cert-blocks/three-text-boxes", {
 
 /***/ }),
 
+/***/ "./src/blocks/two-images-with-captions.js":
+/*!************************************************!*\
+  !*** ./src/blocks/two-images-with-captions.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Dashicon,
+  Button
+} = wp.components;
+const {
+  Fragment
+} = wp.element;
+const {
+  RichText,
+  MediaUpload,
+  MediaUploadCheck
+} = wp.blockEditor;
+registerBlockType("cert-blocks/two-images-with-captions", {
+  title: __("Two Images with Captions"),
+  icon: "format-image",
+  category: "cert-block",
+  description: __("Two images that each have their own caption."),
+  attributes: {
+    images: {
+      type: "array",
+      default: []
+    },
+    imageCount: {
+      type: "number",
+      default: 0
+    },
+    maxCount: {
+      type: "number",
+      default: 2
+    },
+    notPreview: {
+      type: "boolean",
+      default: true
+    }
+  },
+  edit: props => {
+    let count;
+    props.setAttributes({
+      imageCount: 2
+    });
+
+    if (props.attributes.imageCount > 0 && props.attributes.images[0] === undefined) {
+      for (count = 0; count < props.attributes.imageCount; count++) {
+        props.attributes.images.push({});
+      }
+    }
+
+    if (props.attributes.imageCount == 0) {
+      for (count = 0; count < props.attributes.maxCount; count++) {
+        props.attributes.images.pop();
+      }
+    }
+
+    const defaultImage = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/image-placeholder.jpg";
+    let previewImage = [defaultImage];
+    /* display preview image if image is not uploaded*/
+
+    for (count = 0; count < props.attributes.imageCount; count++) {
+      if (props.attributes.images[count] && props.attributes.images[count].image_url) {
+        previewImage[count] = props.attributes.images[count].image_url;
+      }
+
+      if (previewImage[count] === undefined) {
+        previewImage[count] = defaultImage;
+      }
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "two-images-with-caption-editor"
+    }, props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hold-content"
+    }, props.attributes.images.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "each-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "image-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: props.attributes.images[index].image_url
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: media => {
+        const new_images = [...props.attributes.images];
+        new_images[index].image_alt = media.alt;
+        new_images[index].image_url = media.url;
+        new_images[index].image_id = index;
+        props.setAttributes({
+          images: new_images
+        });
+      },
+      type: "image",
+      value: props.attributes.images[index].image_id,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+          className: "image-button-selector",
+          onClick: open
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(`Choose Image ${index + 1}`));
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "text-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "div",
+      className: "subtitle-text",
+      onChange: new_value => {
+        const new_images = [...props.attributes.images];
+        new_images[index].subtitle = new_value;
+        props.setAttributes({
+          images: new_images
+        });
+      },
+      value: props.attributes.images[index].subtitle ? props.attributes.images[index].subtitle : `Subtitle for Image ${index + 1}`
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      tagName: "div",
+      className: "sub-paragraph",
+      onChange: new_value => {
+        const new_images = [...props.attributes.images];
+        new_images[index].subParagraph = new_value;
+        props.setAttributes({
+          images: new_images
+        });
+      },
+      value: props.attributes.images[index].subParagraph ? props.attributes.images[index].subParagraph : `Paragraph for Image ${index + 1}`
+    })))))));
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "two-images-with-captions"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "hold-the-images-captions"
+    }, props.attributes.images.map((image, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "each-image-caption"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "the-image"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: props.attributes.images[index].image_url
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "the-text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.images[index].subtitle
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "sub-paragraph"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: props.attributes.images[index].subParagraph
+    })))))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/stylesheets/editor.scss":
 /*!*************************************!*\
   !*** ./src/stylesheets/editor.scss ***!
@@ -2893,6 +3062,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_article_with_image__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/article-with-image */ "./src/blocks/article-with-image.js");
 /* harmony import */ var _blocks_blockquote__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/blockquote */ "./src/blocks/blockquote.js");
 /* harmony import */ var _blocks_tabs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/tabs */ "./src/blocks/tabs.js");
+/* harmony import */ var _blocks_two_images_with_captions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/two-images-with-captions */ "./src/blocks/two-images-with-captions.js");
+
 
 
 

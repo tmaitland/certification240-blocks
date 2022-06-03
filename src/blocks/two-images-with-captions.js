@@ -139,7 +139,11 @@ registerBlockType("cert-blocks/two-images-with-captions", {
                   {props.attributes.images.map((image, index)=> (
                       <div className="each-image-caption">
                           <div className="the-image">
-                             <img src={props.attributes.images[index].image_url} />
+                             <img src={props.attributes.images[index].image_url} 
+                                className={props.attributes.images[index].image_url === undefined
+                                 ? "hide" : "show"
+                                }
+                             />
                           </div>
                           <div className="the-text">
                             <p>

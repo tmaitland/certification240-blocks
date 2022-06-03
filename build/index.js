@@ -847,6 +847,142 @@ registerBlockType("cert-blocks/landing-header", {
 
 /***/ }),
 
+/***/ "./src/blocks/left-right-content-switch.js":
+/*!*************************************************!*\
+  !*** ./src/blocks/left-right-content-switch.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const {
+  __
+} = wp.i18n;
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  Dashicon,
+  Fragment,
+  Button,
+  RadioControl
+} = wp.components;
+const {
+  MediaUpload,
+  MediaUploadCheck,
+  InnerBlocks,
+  useBlockProps
+} = wp.blockEditor;
+registerBlockType("cert-blocks/left-right-content-switch", {
+  title: "Image and Content Switch",
+  icon: "image-flip-horizontal",
+  category: "cert-block",
+  description: __("Switch position of image and content alignment from LTR or RTL"),
+  attributes: {
+    image_url: {
+      type: "string",
+      default: "Select Image"
+    },
+    options: {
+      type: "string",
+      default: "Image Left"
+    }
+  },
+  edit: props => {
+    const get_image = img => {
+      props.setAttributes({
+        image_ID: img.id,
+        image_url: img.url,
+        image_alt: img.alt
+      });
+    };
+
+    const imageStyles = {
+      width: "312px",
+      height: "394px",
+      margin: "1rem 0rem",
+      objectFit: "cover",
+      objectPosition: "center"
+    };
+    const defaultImage = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/image-placeholder.jpg";
+    let previewImage = [defaultImage];
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "left-right-content-switch-editor"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "radio-select"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose Image alignment: ",
+      selected: props.attributes.options,
+      options: [{
+        label: "Image Align Left",
+        value: "Image Left"
+      }, {
+        label: "Image Align Right",
+        value: "Image Right"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          options: new_value
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUpload, {
+      onSelect: get_image,
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Button, {
+          className: "media-button",
+          onClick: open
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Dashicon, {
+          icon: "format-image",
+          size: "20"
+        }), "\xA0", __(" Choose Content Image"));
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: props.attributes.options === "Image Left" ? "hold-content-switch img-left" : "hold-content-switch img-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-image"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+      style: imageStyles,
+      src: props.attributes.image_url === "Select Image" ? `${previewImage}` : props.attributes.image_url
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
+      allowedBlocks: ["core/paragraph"],
+      className: "paragraph-text",
+      placeholder: "Add Inner Block - Paragraph"
+    })))));
+  },
+  save: props => {
+    const feImageStyles = {
+      width: "412px",
+      height: "494px",
+      objectFit: "cover",
+      objectPosition: "center"
+    };
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "left-right-content-switch"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: props.attributes.options === "Image Left" ? "hold-content img-left" : "hold-content img-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-image"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+      style: feImageStyles,
+      src: props.attributes.image_url
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "hold-text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks.Content, useBlockProps))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/tabs.js":
 /*!****************************!*\
   !*** ./src/blocks/tabs.js ***!
@@ -1724,7 +1860,8 @@ registerBlockType("cert-blocks/two-images-with-captions", {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "the-image"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: props.attributes.images[index].image_url
+      src: props.attributes.images[index].image_url,
+      className: props.attributes.images[index].image_url === undefined ? "hide" : "show"
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "the-text"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
@@ -3063,6 +3200,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_blockquote__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/blockquote */ "./src/blocks/blockquote.js");
 /* harmony import */ var _blocks_tabs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/tabs */ "./src/blocks/tabs.js");
 /* harmony import */ var _blocks_two_images_with_captions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/two-images-with-captions */ "./src/blocks/two-images-with-captions.js");
+/* harmony import */ var _blocks_left_right_content_switch__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/left-right-content-switch */ "./src/blocks/left-right-content-switch.js");
+
 
 
 

@@ -350,6 +350,67 @@
   font-size: 16px;
   font-family: "Nunito Sans";
 }
+
+/*Display Tabs block editor styles */
+.hold-display-tabs-edit {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+.hold-display-tabs-edit .display-tabs-box-edit {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit .tab-btn.active {
+  background: #ffffff;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit .tab-btn {
+  padding: 1rem 0;
+  border: none;
+  text-transform: capitalize;
+  font-size: 1rem;
+  display: block;
+  background: hsl(212deg, 33%, 89%);
+  cursor: pointer;
+  transition: all 0.3s linear;
+  letter-spacing: 0.25rem;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit .tab-btn:hover:not(.active) {
+  background: hsl(205deg, 100%, 96%);
+  color: #49a6e9;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit .tab-btn:nth-child(1) {
+  border-top-left-radius: 0.5rem;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-btn-container-edit .tab-btn:nth-child(3) {
+  border-top-right-radius: 0.5rem;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-content-container-edit {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-content-container-edit .content.active {
+  display: block;
+}
+.hold-display-tabs-edit .display-tabs-box-edit .tab-content-container-edit .content {
+  display: block;
+}
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/styles.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
@@ -896,6 +957,8 @@
   font-size: 18px;
   font-family: "Nunito Sans";
 }
+
+/*Display Tabs block frontend styles */
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/

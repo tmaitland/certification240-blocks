@@ -12,7 +12,6 @@ import "./blocks/text-hero-cta";
 import "./blocks/three-step-path";
 import "./blocks/article-with-image";
 import "./blocks/blockquote";
-import "./blocks/tabs";
 import "./blocks/two-images-with-captions";
 import "./blocks/left-right-content-switch";
 

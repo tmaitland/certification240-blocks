@@ -362,3 +362,62 @@
         }
     }
 }
+
+/*Display Tabs block editor styles */
+.hold-display-tabs-edit {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    .display-tabs-box-edit {
+        background: #ffffff;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        .tab-btn-container-edit {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            .tab-btn.active {
+                background:#ffffff;
+            }
+            .tab-btn {
+                padding: 1rem 0;
+                border: none;
+                text-transform: capitalize;
+                font-size: 1rem;
+                display: block;
+                background: hsl(212, 33%, 89%);
+                cursor: pointer;
+                transition: all 0.3s linear;
+                letter-spacing: 0.25rem;
+                &:hover:not(.active) {
+                    background: hsl(205, 100%, 96%);
+                    color: #49a6e9;
+                }
+                &:nth-child(1) {
+                    border-top-left-radius: 0.5rem;
+                }
+                &:nth-child(3) {
+                    border-top-right-radius: 0.5rem;
+                }
+
+            }
+        }
+        .tab-content-container-edit {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            padding: 2rem 1.5rem;
+            .content.active {
+                display: block;
+            }
+            .content {
+                display: block;
+            }
+        }
+
+    }
+}
+
+  

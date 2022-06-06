@@ -258,128 +258,6 @@ const WSTextControl = props => {
 
 /***/ }),
 
-/***/ "./src/blocks/display-tabs.js":
-/*!************************************!*\
-  !*** ./src/blocks/display-tabs.js ***!
-  \************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-const {
-  __
-} = wp.i18n;
-const {
-  registerBlockType
-} = wp.blocks;
-const {
-  TextControl,
-  Button,
-  Dashicon
-} = wp.components;
-const {
-  RichText,
-  InnerBlocks,
-  useBlockProps
-} = wp.blockEditor;
-registerBlockType("cert-blocks/display-tabs", {
-  title: __("Display Tabs with Content"),
-  icon: "table-row-after",
-  category: "cert-block",
-  description: __("Generates clickable tabs that can hold different blocks"),
-  attributes: {
-    section_heading: {
-      type: "string",
-      default: "Section heading goes here"
-    },
-    tabs: {
-      type: "array",
-      default: []
-    },
-    tabCount: {
-      type: "number",
-      default: 0
-    },
-    maxCount: {
-      type: "number",
-      default: 3
-    },
-    notPreview: {
-      type: "boolean",
-      default: true
-    }
-  },
-  edit: props => {
-    let count;
-    props.setAttributes({
-      tabCount: 3
-    });
-
-    if (props.attributes.tabCount > 0 && props.attributes.tabs[0] === undefined) {
-      for (count = 0; count < props.attributes.tabCount; count++) {
-        props.attributes.tabs.push({});
-      }
-    }
-
-    if (props.attributes.tabCount === 0) {
-      for (count = 0; count < props.attributes.maxCount; count++) {
-        props.attributes.tabs.pop({});
-      }
-    }
-
-    function showTabContent() {
-      const index = 0;
-      const tabBtn = document.querySelectorAll(".tab-btn");
-      const tabContent = document.querySelectorAll(".content");
-
-      for (index; index < tabContent.length; i++) {
-        console.log(tabContent, tabBtn);
-      }
-    }
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "hold-display-tabs-edit"
-    }, props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "display-tabs-box-edit"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "tab-btn-container-edit"
-    }, props.attributes.tabs.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-      className: "tab-btn active",
-      onClick: showTabContent,
-      "data-id": index + 1
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
-      label: `Tab ${index + 1} Text`,
-      className: "tab-title",
-      onChange: new_value => {
-        const new_tabs = [...props.attributes.tabs];
-        new_tabs[index].tabTitle = new_value;
-        props.setAttributes({
-          tabs: new_tabs
-        });
-      },
-      value: props.attributes.tabs[index].tabTitle
-    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "tab-content-container-edit"
-    }, props.attributes.tabs.map((empty, index) => {
-      (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        class: "content active",
-        id: `content-${index + 1}`
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, useBlockProps));
-    }))));
-  },
-  save: props => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "hold-display-tabs"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "display-tabs-container"
-    }));
-  }
-});
-
-/***/ }),
-
 /***/ "./src/blocks/general-info-text.js":
 /*!*****************************************!*\
   !*** ./src/blocks/general-info-text.js ***!
@@ -1969,10 +1847,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_three_step_path__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/three-step-path */ "./src/blocks/three-step-path.js");
 /* harmony import */ var _blocks_article_with_image__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/article-with-image */ "./src/blocks/article-with-image.js");
 /* harmony import */ var _blocks_blockquote__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/blockquote */ "./src/blocks/blockquote.js");
-/* harmony import */ var _blocks_display_tabs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/display-tabs */ "./src/blocks/display-tabs.js");
-/* harmony import */ var _blocks_two_images_with_captions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/two-images-with-captions */ "./src/blocks/two-images-with-captions.js");
-/* harmony import */ var _blocks_left_right_content_switch__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/left-right-content-switch */ "./src/blocks/left-right-content-switch.js");
-
+/* harmony import */ var _blocks_two_images_with_captions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/two-images-with-captions */ "./src/blocks/two-images-with-captions.js");
+/* harmony import */ var _blocks_left_right_content_switch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/left-right-content-switch */ "./src/blocks/left-right-content-switch.js");
 
 
 

@@ -481,9 +481,11 @@
             .the-image {
                 img {
                 width: 569px;
-                height: 268px;
+                height: 380px;
                 border-radius: 40px;
                 box-shadow: -1px 2px 20px rgb(35 35 35 / 15%);
+                object-fit: cover;
+                object-position: center;
                 }
                 img.hide {
                     display: none;

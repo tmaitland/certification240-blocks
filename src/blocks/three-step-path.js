@@ -1,6 +1,6 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { Dashicon, Button } = wp.components;
+const { Dashicon, Button, RadioControl } = wp.components;
 const { Fragment } = wp.element;
 const { RichText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps} = wp.blockEditor;
 
@@ -41,7 +41,11 @@ registerBlockType("cert-blocks/three-step-path", {
 		maxDImgCount: {
 			type: "number",
 			default: 4
-		}
+		},
+		options: {
+            type: "string",
+            default: "#FFF9F7"
+        },
 
     },
 
@@ -98,7 +102,25 @@ registerBlockType("cert-blocks/three-step-path", {
 
 		return (
 			<Fragment>
-				<div className="three-step-path-block-editor">
+				<div className={props.attributes.options === "#FFF9F7" ? "three-step-path-block-editor light-pink"
+								:  props.attributes.options === "#EEF8F7" ? "three-step-path-block-editor light-green"
+								: "three-step-path-block-editor" }>
+					<div className="radio-select">
+						<RadioControl
+							label="Choose background color: "
+							selected={props.attributes.options}
+							options={[
+								{ label: "Light Pink Background", value: "#FFF9F7"},
+								{ label: "Light Green Background", value: "#EEF8F7"},
+								{ label: "No Background Color", value: "transparent"},
+							]}
+							onChange={ (new_value)=> {
+								props.setAttributes({
+									options: new_value
+								})
+							}}
+							/>
+					</div>					
 				<RichText
                     multiline="h2"
                     onChange={(new_value)=>{
@@ -107,6 +129,12 @@ registerBlockType("cert-blocks/three-step-path", {
                     value={props.attributes.section_heading}
                     className="section-heading-edit"
                 />
+				<ol class="explanation">
+					<li>Design Image 1 - Top Left</li>
+					<li>Design Image 2 - Middle Right</li>
+					<li>Design Image 3 - Bottom Left</li>
+					<li>Design Image 4 - Bottom Right</li>
+				</ol>
 				{props.attributes.notPreview && (
 					<div className="hold-design-img-btns">
 						{props.attributes.designImgs.map((empty, index) => (
@@ -146,65 +174,70 @@ registerBlockType("cert-blocks/three-step-path", {
 						{props.attributes.steps.map((empty, index)=> (
 							<Fragment>
 								<div className="three-step-container">
-									<div className="image-container"
-									style={{
-										backgroundImage: `url('${previewImage[index]}')`,
-									}}></div>
-									 <MediaUploadCheck>
-                                        <MediaUpload
-                                            onSelect={(media) => {
-                                                const new_steps = [...props.attributes.steps];
-                                                new_steps[index].image_alt = media.alt;
-                                                new_steps[index].image_url = media.url;
-                                                new_steps[index].image_id = index;
-                                                props.setAttributes({ steps: new_steps });
-                                            }}
-                                            type="image"
-                                            value={props.attributes.steps[index].image_id}
-                                            render={({ open }) => (
-                                                <Button
-                                                    className={"image-button-selector"}
-                                                    onClick={open}
-                                                >
-                                                    <Dashicon icon="format-image" size="20" />&nbsp;
-                                                    {__(`Choose Image ${ index + 1 }`)}
-                                                </Button>
-                                            )}
-                                        />
-                                    </MediaUploadCheck> 
-									<div className="subheading-content-edit">
+									<div className="image-content-container">
+										<div className="image-container"
+										style={{
+											backgroundImage: `url('${previewImage[index]}')`,
+										}}></div>
+										<MediaUploadCheck>
+											<MediaUpload
+												onSelect={(media) => {
+													const new_steps = [...props.attributes.steps];
+													new_steps[index].image_alt = media.alt;
+													new_steps[index].image_url = media.url;
+													new_steps[index].image_id = index;
+													props.setAttributes({ steps: new_steps });
+												}}
+												type="image"
+												value={props.attributes.steps[index].image_id}
+												render={({ open }) => (
+													<Button
+														className={"image-button-selector"}
+														onClick={open}
+													>
+														<Dashicon icon="format-image" size="20" />&nbsp;
+														{__(`Choose Image ${ index + 1 }`)}
+													</Button>
+												)}
+											/>
+                                    	</MediaUploadCheck> 
+
+									</div>				
+									<div className="text-content-container">
+										<div className="subheading-content-edit">
+											<RichText 
+												tagName="div"
+												onChange={(new_val) => {
+													const new_steps = [...props.attributes.steps];
+													new_steps[index].heading = new_val;
+													props.setAttributes({ steps: new_steps });
+												}}
+												value={
+													props.attributes.steps[index].heading
+														? props.attributes.steps[index].heading
+														: `Subeading for Step ${index + 1}`
+												}
+												className="step-heading"
+											
+											/>
+										</div>
+										<div className="paragraph-content-edit">
 										<RichText 
-											tagName="div"
-											onChange={(new_val) => {
-												const new_steps = [...props.attributes.steps];
-												new_steps[index].heading = new_val;
-												props.setAttributes({ steps: new_steps });
-											}}
-											value={
-												props.attributes.steps[index].heading
-													? props.attributes.steps[index].heading
-													: `Subeading for Step ${index + 1}`
-											}
-											className="step-heading"
-										
-										/>
-									</div>
-									<div className="paragraph-content-edit">
-									<RichText 
-											tagName="div"
-											onChange={(new_val) => {
-												const new_steps = [...props.attributes.steps];
-												new_steps[index].paragraph = new_val;
-												props.setAttributes({ steps: new_steps });
-											}}
-											value={
-												props.attributes.steps[index].paragraph
-													? props.attributes.steps[index].paragraph
-													: `Paragraph for Step ${index + 1}`
-											}
-											className="step-paragraph"
-										
-										/> 
+												tagName="div"
+												onChange={(new_val) => {
+													const new_steps = [...props.attributes.steps];
+													new_steps[index].paragraph = new_val;
+													props.setAttributes({ steps: new_steps });
+												}}
+												value={
+													props.attributes.steps[index].paragraph
+														? props.attributes.steps[index].paragraph
+														: `Paragraph for Step ${index + 1}`
+												}
+												className="step-paragraph"
+											
+											/> 
+										</div>
 									</div>
 
 								</div>
@@ -229,7 +262,9 @@ registerBlockType("cert-blocks/three-step-path", {
 
 		return(
 			<Fragment>
-				<div className="three-step-path-content">
+				<div className={props.attributes.options === "#FFF9F7" ? "three-step-path-content light-pink"
+								: props.attributes.options === "#EEF8F7" ? "three-step-path-content light-green"
+								: "three-step-path-content"}>
 					<RichText.Content 
 					className="headline" 
 					tagName="h2" 

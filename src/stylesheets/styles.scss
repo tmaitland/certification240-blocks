@@ -15,6 +15,7 @@
         background-repeat: no-repeat;
         background-position: right;
         position: relative;
+        z-index: -1;
         .hold-text-btn {
             height: 100%;
             width: 60%;
@@ -62,9 +63,19 @@
 }
 
 /*three image breaker block frontend styles */
-
+.three-images-wp-block.light-pink {
+    background-color: $lightPink;
+}
+.three-images-wp-block.light-green {
+    background-color: $lightGreen;
+}
 .three-images-wp-block {
-    padding: 2rem; 
+    padding: 2rem;
+    background-color: transparent; 
+    border-radius: 300%/20% 20% 5% 90%;
+    padding: 6rem 0rem;
+    margin-top: -4rem;
+    z-index: 1;
     .headline {
         text-align: center;
         font-size: 45px;
@@ -89,10 +100,12 @@
             font-weight: 500;
             padding: 1.5rem 2rem;
             margin-bottom: 0px;
+            background: $white;
+            border-radius: 30px;
            }
            .the-image {
             height: 384px;
-            width: 384px;
+            width: 400px;
             object-fit: cover;
             border-radius: 0px 0px 30px 30px;
            }
@@ -140,11 +153,11 @@
 
 /*Image Left Content Right block frontend styles */
 .img-left-content-right.light-green {
-    background-color: #EEF8F7;
+    background-color: $lightGreen;
     height: 431px;
 }
 .img-left-content-right.light-pink {
-    background-color: #FFF9F7;
+    background-color: $lightPink;
     height: 676px;
 }
 .img-left-content-right {
@@ -152,6 +165,7 @@
     justify-content: center;
     align-items: center;
     margin: 8rem 0rem;
+    border-radius: 160%/20% 20% 20% 20%;
   .image-hold {
     background-position: center;
     border-radius: 5%;
@@ -238,12 +252,20 @@
 }
 
 /*Text Header CTA block frontend styles */
+.text-hero-cta.light-pink {
+    background-color: $lightPink;
+}
+.text-hero-cta.light-green {
+    background-color: $lightGreen;
+}
 .text-hero-cta {
-    margin-bottom: 3rem;
-    height: 400px;
+    margin-bottom: 0rem;
+    height: 500px;
+    border-radius: 160%/20% 20% 20% 20%;
+    padding: 5rem 0rem 4rem;
     .hold-content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-direction: column;
         height: 100%;
@@ -252,7 +274,7 @@
             margin-bottom: 2rem;
             font-family: $headingFont;
             text-transform: capitalize;
-            font-size: 60px;
+            font-size: 55px;
             font-weight: 600;
             line-height: initial;
             color: $brandBlack;
@@ -275,9 +297,18 @@
 }
 
 /*Three Step Path block frontend styles*/
+.three-step-path-content.light-pink {
+    background-color: $lightPink;
+}
+.three-step-path-content.light-green {
+    background-color: $lightGreen;
+}
 .three-step-path-content {
     margin: 10rem 0rem 3rem 0rem;
     position: relative;
+    background-color: transparent;
+    border-radius: 300%/20% 20% 5% 44%;
+    padding: 5rem 0rem;
     .headline {
         font-family: $headingFont;
         text-align: center;
@@ -331,6 +362,7 @@
             align-items: center;
             border-radius: 40px;
             box-shadow: 0px 1px 15px rgb(0 0 0 / 15%);
+            background-color: $white;
             .step-image {
                 height: 200px;
                 width: 200px;
@@ -480,9 +512,9 @@
             margin: 0rem 3rem;
             .the-image {
                 img {
-                width: 569px;
+                width: 500px;
                 height: 380px;
-                border-radius: 40px;
+                border-radius: 30px;
                 box-shadow: -1px 2px 20px rgb(35 35 35 / 15%);
                 object-fit: cover;
                 object-position: center;
@@ -495,7 +527,7 @@
                 }
             }
             .the-text {
-                width: 569px;
+                width: 500px;
                 height: auto;
                 margin-top: 1.5rem;
                 p {
@@ -526,19 +558,22 @@
         display: flex;
         justify-content: center;
         .hold-image {
-            width: 500px;
+            width: 450px;
             display: flex;
             justify-content: center;
+            margin: 0rem 1rem;
             img {
-                border-radius: 45px;
+                border-radius: 40px;
+                width: 100%;
             }
         }
         .hold-text {
-            width: 700px;
+            width: 650px;
             p {
                 color: $brandBlack;
                 font-size: 18px;
                 font-family: $bodyFont;
+                padding: 1rem 1.5rem;
             }
         }
     }

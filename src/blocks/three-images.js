@@ -1,6 +1,6 @@
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { Button, Dashicon } = wp.components;
+const { Button, Dashicon, RadioControl } = wp.components;
 const { Fragment } = wp.element;
 const { RichText, MediaUpload, MediaUploadCheck, InnerBlocks, useBlockProps} = wp.blockEditor;
 
@@ -32,7 +32,11 @@ registerBlockType("cert-blocks/three-images", {
 		notPreview: {
 			type: "boolean",
 			default: true,
-		}
+		},
+        options: {
+            type: "string",
+            default: "#FFF9F7"
+        },
     },   
     
     edit: (props) => {
@@ -71,7 +75,25 @@ registerBlockType("cert-blocks/three-images", {
 
         return(
         <Fragment>
-          <div className="three-images-block-editor">
+          <div className={props.attributes.options === "#FFF9F7" ? "three-images-block-editor light-pink" 
+                        : props.attributes.options === "#EEF8F7" ? "three-images-block-editor light-green" 
+                        : "three-images-block-editor" }>
+            <div className="radio-select">
+            <RadioControl
+                label="Choose background color: "
+                selected={props.attributes.options}
+                options={[
+                    { label: "Light Pink Background", value: "#FFF9F7"},
+                    { label: "Light Green Background", value: "#EEF8F7"},
+                    { label: "No Background Color", value: "transparent"}
+                ]}
+                onChange={ (new_value)=> {
+                    props.setAttributes({
+                        options: new_value
+                    })
+                }}
+                />
+            </div>             
           <RichText
                     multiline="h2"
                     onChange={(new_value)=>{
@@ -158,6 +180,7 @@ registerBlockType("cert-blocks/three-images", {
                                     </MediaUploadCheck> 
                                 </div>
                             </div>
+                            <hr/>
                     </Fragment>
                     ))}
                 </div>
@@ -178,14 +201,16 @@ registerBlockType("cert-blocks/three-images", {
     save: (props) => {
         return(
            <Fragment>
-            <div className="three-images-wp-block">
+            <div className={props.attributes.options === "#FFF9F7" ? "three-images-wp-block light-pink"
+                            : props.attributes.options === "#EEF8F7" ? "three-images-wp-block light-green"
+                            : "three-images-wp-block"}>
                 <RichText.Content 
                  className="headline" 
                  tagName="h2" 
                  value={props.attributes.section_heading} 
                  
                 />
-                <div className="three-images-container">
+                <div className="three-images-container animate__animated animate__slideInLeft">
                     <Fragment>
                      {props.attributes.images.map((image, index) => (	
                         <a className="image-link"

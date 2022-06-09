@@ -9,6 +9,7 @@
 /*landing header block editor styles */
 .full-header-wp-block-editor {
     border: 1px solid $gray;
+    margin: 2rem 0rem;
     .landing-header-image {
         box-shadow: 0px 0px 70px 0px $white inset;
         .contain-text {
@@ -16,25 +17,28 @@
             height: 100%;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr;
-            width: 50%;
-            background: linear-gradient(90deg, $white, $white, $white, $white, transparent);
+            width: 60%;
+            background: linear-gradient(90deg, $white, $white, $white, $white, $white, transparent);
+            color: $brandBlack;
             .head-heading {
                 align-self: flex-end;
                 grid-column-start: 1;
                 grid-row-start: 1;
                 grid-row-end: 1;
-                height: 60px;
+                height: auto;
                 background: transparent;
                 margin: 0rem 0rem 1rem 1rem;
                 width: 85%;
                 font-family: $headingFont;
+                font-size: 30px;
+
             }
             .head-paragraph {
                 align-self: flex-start;
                 grid-column-start: 1;
                 grid-row-start: 2;
                 grid-row-end: 2;
-                height: 135px;
+                height: auto;
                 background: transparent;
                 margin: 0rem 0rem 1rem 1rem;
                 width: 85%;
@@ -55,15 +59,26 @@
 }
 
 /*three image breaker block editor styles */
-
+.three-images-block-editor.light-pink {
+    background-color: $lightPink;
+}
+.three-images-block-editor.light-green {
+    background-color: $lightGreen;
+}
 .three-images-block-editor {
-    margin: 4rem 0rem;
+    margin: 2rem 0rem;
+    background-color: transparent;
+    border: 1px solid $gray;
+    padding: 1rem;
     .section-heading-edit {
       margin: 1rem 0rem;
       font-family: $headingFont;
+      text-align: center;
+      font-size: 30px;
     }
     .image-heading {
         font-family: $bodyFont;
+        font-weight: 500;
     }
     .image-container {
         width: 300px;
@@ -87,7 +102,17 @@
 
 
 /*Image Left Content Right block editor styles */
+.imgl-contentr-wp-block-editor.light-green {
+    background-color: $lightGreen;
+}
+.imgl-contentr-wp-block-editor.light-pink {
+    background-color: $lightPink;
+}
 .imgl-contentr-wp-block-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
+    height: auto;
     .edit-image-button {
         .components-button {
             border: 1px solid $brandBlack;
@@ -101,14 +126,6 @@
         .radio-select {
             margin: 2rem 0rem;
             height: 200px;
-        }
-        .hold-content.light-green {
-            background-color: #EEF8F7;
-            height: auto;
-        }
-        .hold-content.light-pink {
-            background-color: #FFF9F7;
-            height: auto;
         }
         .hold-content {
             display: block;
@@ -156,32 +173,61 @@
 
 /*Three Text Boxes block editor styles */
 .three-text-boxes-block-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
     .three-boxes-content {
-        .box-heading-text-edit {
-            height: 60px;
-            background: transparent;
-            font-family: $headingFont; 
-            margin-left: 1rem; 
-
-        }
-        .box-paragraph-edit { 
+        .each-text-box {
+            width: 400px;
+            height: auto;
             margin-bottom: 2rem;
-            margin-left: 1rem; 
-            height: 135px;
-            background: transparent;
-            font-family: $bodyFont; 
+            padding: 2.5rem 1rem;
+            box-shadow: 1px 3px 10px rgb(0 0 0 / 15%);
+            border-radius: 20px;
+            .box-heading-text-edit {
+                height: auto;
+                background: transparent;
+                font-family: $headingFont; 
+                margin-left: 1rem; 
+                text-align: center;
+                font-size: 30px;
+                color: $brandOrange;
+                margin-bottom: 1rem;
+            }
+            .box-paragraph-edit { 
+                margin-bottom: 2rem;
+                margin-left: 1rem; 
+                height: auto;
+                background: transparent;
+                font-family: $bodyFont; 
+                color: $brandBlack;
+            }
         }
     }
 }
 
 /*Text Header CTA block editor styles */
 .text-hero-cta-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
+    .hold-content-edit.light-pink {
+        background-color: $lightPink;
+    } 
+    .hold-content-edit.light-green {
+        background-color: $lightGreen;
+    } 
     .hold-content-edit {
+        padding: 2rem 0rem;
         .text-heading-edit {
-            height: 60px;
+            height: auto;
             margin: 2rem 2rem 1rem 1rem;
             background: transparent;
             font-family: $headingFont; 
+            color: $brandBlack;
+            text-align: center;
+            font-size: 30px;
+            padding: 2rem 0rem;
         }
         .cta-button {
             width: auto;
@@ -192,13 +238,36 @@
 }
 
 /*Three Step Path block editor styles*/
+.three-step-path-block-editor.light-pink {
+    background-color: $lightPink;
+}
+.three-step-path-block-editor.light-green {
+    background-color: $lightGreen;
+}
 .three-step-path-block-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    background-color: transparent;
+    margin: 2rem 0rem;
   .section-heading-edit { 
-    height: 60px;
+    height: auto;
     margin: 2rem 2rem 1rem 1rem;
     background: transparent;
     font-family: $headingFont; 
     padding: 1rem;
+    text-align: center;
+    font-size: 30px;
+    color: $brandBlack;
+  }
+  ol.explanation {
+    display: flex;
+    justify-content: space-evenly;
+    padding-inline-start: 0px;
+      li {
+        font-family: $bodyFont;
+        font-size: 12px;
+        color: $brandBlack;
+      }
   }
     .hold-design-img-btns {
         margin: 2rem 0rem;
@@ -222,41 +291,48 @@
             margin: 0.25rem;
         }
     }
-  
     .three-step-content-edit {
-       
         .image-button-selector {
             border: 1px solid $brandBlack;
             border-radius: 9px;
         }
-
+        
         .three-step-container {
-            border-bottom: 1px solid $gray;
+            border-radius: 30px;
+            box-shadow: 1px 3px 10px rgb(0 0 0 / 15%);
+            padding: 1rem;
+            background: $white;
             margin: 1rem;
-            .image-container {
-                height: 300px;
-                width: 300px;
-                background-size: contain;
-                margin: 1rem 0rem;
-            }
-            .subheading-content-edit {
-                .step-heading {
-                    margin-bottom: 0.25rem;
-                    height: auto;
-                    background: transparent;
-                    font-family: $bodyFont; 
-                    padding: 1rem;
+            display: flex;
+            .image-content-container {
+                .image-container {
+                    height: 150px;
+                    width: 150px;
+                    background-size: contain;
+                    margin: 1rem 0rem;
                 }
-            }    
-            .paragraph-content-edit {
-                margin-bottom: 3rem;
-                .step-paragraph {
-                    margin-bottom: 2rem;
-                    height: auto;
-                    background: transparent;
-                    font-family: $bodyFont;
-                    padding: 1rem;
-    
+            }
+            .text-content-container {
+                .subheading-content-edit {
+                    .step-heading {
+                        margin-bottom: 0.25rem;
+                        height: auto;
+                        background: transparent;
+                        font-family: $bodyFont; 
+                        padding: 1rem;
+                        color: $brandBlack;
+                    }
+                }    
+                .paragraph-content-edit {
+                    margin-bottom: 3rem;
+                    .step-paragraph {
+                        margin-bottom: 2rem;
+                        height: auto;
+                        background: transparent;
+                        font-family: $bodyFont;
+                        padding: 1rem;
+                        color: $brandBlack;
+                    }
                 }
             }    
             
@@ -267,9 +343,15 @@
 
 /*Article with image block editor styles*/
 .article-with-image-block-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
     .edit-article-text {
         .article-heading-edit {
             font-family: $headingFont;
+            color: $brandBlack;
+            font-size: 30px;
+            text-align: center;
         }
         .media-button {
             margin: 1rem 0rem;
@@ -297,13 +379,20 @@
 
 /*Blockquote block editor styles*/
 .blockquote-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
     span {
         font-family: $bodyFont;
+        color: $brandBlack;
     }
 }
 
 /* Two Images with Captions block editor styles */
 .two-images-with-caption-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
+    margin: 2rem 0rem;
     .hold-content {
         display: flex;
         .each-content {
@@ -311,7 +400,12 @@
             width: 380px;
             .image-container {
                 border: 1px solid $brandBlack;
-                border-radius: 30px;
+                img {
+                    width: 100%;
+                    height: 250px;
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
             .image-button-selector {
                 border: 1px solid $brandBlack;
@@ -327,6 +421,8 @@
 
 /* Left Right Content Switch block editor styles */
 .left-right-content-switch-editor {
+    border: 1px solid $gray;
+    padding: 1rem;
     margin: 2rem 0rem;
     .radio-select {
 

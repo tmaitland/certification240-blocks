@@ -48,7 +48,7 @@ registerBlockType("cert-blocks/three-text-boxes", {
                 {props.attributes.notPreview && (
                     <div className="three-boxes-content">
                         {props.attributes.boxes.map((empty, index) => (
-                            <Fragment>
+                            <div class="each-text-box">
                                 <div className="box-heading-text-edit">
                                 <RichText 
                                  tagName="div"
@@ -64,22 +64,21 @@ registerBlockType("cert-blocks/three-text-boxes", {
                                  }
                                 />
 
-                            </div>
-                            <div className="box-paragraph-edit">
-                                <RichText
-                                    value={props.attributes.boxes[index].paragraph
-                                        ? props.attributes.boxes[index].paragraph
-                                        : `Paragraph ${index + 1}`}
-                                    onChange={(new_val) => {
-                                        const new_boxes = [...props.attributes.boxes];
-                                        new_boxes[index].paragraph = new_val;
-                                        props.setAttributes({ boxes: new_boxes });
-                                    }}
-                                    index={index}
-                                />
-
-                            </div>
-                            </Fragment>
+                                </div>
+                                <div className="box-paragraph-edit">
+                                    <RichText
+                                        value={props.attributes.boxes[index].paragraph
+                                            ? props.attributes.boxes[index].paragraph
+                                            : `Paragraph ${index + 1}`}
+                                        onChange={(new_val) => {
+                                            const new_boxes = [...props.attributes.boxes];
+                                            new_boxes[index].paragraph = new_val;
+                                            props.setAttributes({ boxes: new_boxes });
+                                        }}
+                                        index={index}
+                                    />
+                                </div>
+                           </div>
                             
                         ))}
                     </div>

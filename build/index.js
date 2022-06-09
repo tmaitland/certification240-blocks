@@ -422,7 +422,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
     };
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "imgl-contentr-wp-block-editor"
+      className: props.attributes.options === "#EEF8F7" ? "imgl-contentr-wp-block-editor light-green" : "imgl-contentr-wp-block-editor light-pink"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "edit-image-button"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MediaUpload, {
@@ -474,7 +474,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
         });
       }
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: props.attributes.options === "#EEF8F7" ? "hold-content light-green" : "hold-content light-pink"
+      className: "hold-content"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: props.attributes.image_height === "388px" ? "hold-image short" : "hold-image tall",
       style: contentImageCSS
@@ -674,7 +674,8 @@ registerBlockType("cert-blocks/landing-header", {
       backgroundImage: `url(${props.attributes.image_url})`
     };
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "landing-header"
+      className: "landing-header",
+      "data-aos": "fade-in"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "header-img-bg",
       style: headerImageCSS
@@ -811,7 +812,6 @@ registerBlockType("cert-blocks/left-right-content-switch", {
   },
   save: props => {
     const feImageStyles = {
-      width: "412px",
       height: "494px",
       objectFit: "cover",
       objectPosition: "center"
@@ -853,7 +853,8 @@ const {
 } = wp.blocks;
 const {
   Button,
-  Dashicon
+  Dashicon,
+  RadioControl
 } = wp.components;
 const {
   RichText,
@@ -869,13 +870,34 @@ registerBlockType("cert-blocks/text-hero-cta", {
     heading: {
       type: "string",
       default: "Heading goes here"
+    },
+    options: {
+      type: "string",
+      default: "#FFF9F7"
     }
   },
   edit: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps(), {
       className: "text-hero-cta-editor"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "hold-content-edit"
+      className: "radio-select"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose background color: ",
+      selected: props.attributes.options,
+      options: [{
+        label: "Light Pink Background",
+        value: "#FFF9F7"
+      }, {
+        label: "Light Green Background",
+        value: "#EEF8F7"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          options: new_value
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: props.attributes.options === "#FFF9F7" ? "hold-content-edit light-pink" : "hold-content-edit light-green"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
       multiline: "h1",
       onChange: new_value => {
@@ -884,6 +906,7 @@ registerBlockType("cert-blocks/text-hero-cta", {
         });
       },
       value: props.attributes.heading,
+      placeholder: props.attributes.heading,
       className: "text-heading-edit"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, {
       allowedBlocks: ["core/button"],
@@ -894,7 +917,7 @@ registerBlockType("cert-blocks/text-hero-cta", {
   save: props => {
     const blockProps = useBlockProps.save();
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
-      className: "text-hero-cta"
+      className: props.attributes.options === "#FFF9F7" ? "text-hero-cta light-pink" : "text-hero-cta light-green"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-content"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
@@ -930,7 +953,8 @@ const {
 } = wp.blocks;
 const {
   Button,
-  Dashicon
+  Dashicon,
+  RadioControl
 } = wp.components;
 const {
   Fragment
@@ -969,6 +993,10 @@ registerBlockType("cert-blocks/three-images", {
     notPreview: {
       type: "boolean",
       default: true
+    },
+    options: {
+      type: "string",
+      default: "#FFF9F7"
     }
   },
   edit: props => {
@@ -1004,8 +1032,28 @@ registerBlockType("cert-blocks/three-images", {
 
     const textHandler = _components_TextControl__WEBPACK_IMPORTED_MODULE_2__["default"];
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-images-block-editor"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      className: props.attributes.options === "#FFF9F7" ? "three-images-block-editor light-pink" : props.attributes.options === "#EEF8F7" ? "three-images-block-editor light-green" : "three-images-block-editor"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "radio-select"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose background color: ",
+      selected: props.attributes.options,
+      options: [{
+        label: "Light Pink Background",
+        value: "#FFF9F7"
+      }, {
+        label: "Light Green Background",
+        value: "#EEF8F7"
+      }, {
+        label: "No Background Color",
+        value: "transparent"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          options: new_value
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
       multiline: "h2",
       onChange: new_value => {
         props.setAttributes({
@@ -1079,7 +1127,7 @@ registerBlockType("cert-blocks/three-images", {
           size: "20"
         }), "\xA0", __(`Choose Image ${index + 1}`));
       }
-    }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("hr", null)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
       allowedBlocks: ["core/paragraph"],
       className: "the-text-edit",
       placeholder: "Add Inner Block - Paragraph"
@@ -1087,13 +1135,13 @@ registerBlockType("cert-blocks/three-images", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-images-wp-block"
+      className: props.attributes.options === "#FFF9F7" ? "three-images-wp-block light-pink" : props.attributes.options === "#EEF8F7" ? "three-images-wp-block light-green" : "three-images-wp-block"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       className: "headline",
       tagName: "h2",
       value: props.attributes.section_heading
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-images-container"
+      className: "three-images-container animate__animated animate__slideInLeft"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, props.attributes.images.map((image, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
       className: "image-link",
       href: props.attributes.images[index].link
@@ -1136,7 +1184,8 @@ const {
 } = wp.blocks;
 const {
   Dashicon,
-  Button
+  Button,
+  RadioControl
 } = wp.components;
 const {
   Fragment
@@ -1185,6 +1234,10 @@ registerBlockType("cert-blocks/three-step-path", {
     maxDImgCount: {
       type: "number",
       default: 4
+    },
+    options: {
+      type: "string",
+      default: "#FFF9F7"
     }
   },
   edit: props => {
@@ -1239,8 +1292,28 @@ registerBlockType("cert-blocks/three-step-path", {
     }
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-step-path-block-editor"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      className: props.attributes.options === "#FFF9F7" ? "three-step-path-block-editor light-pink" : props.attributes.options === "#EEF8F7" ? "three-step-path-block-editor light-green" : "three-step-path-block-editor"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "radio-select"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RadioControl, {
+      label: "Choose background color: ",
+      selected: props.attributes.options,
+      options: [{
+        label: "Light Pink Background",
+        value: "#FFF9F7"
+      }, {
+        label: "Light Green Background",
+        value: "#EEF8F7"
+      }, {
+        label: "No Background Color",
+        value: "transparent"
+      }],
+      onChange: new_value => {
+        props.setAttributes({
+          options: new_value
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
       multiline: "h2",
       onChange: new_value => {
         props.setAttributes({
@@ -1249,7 +1322,9 @@ registerBlockType("cert-blocks/three-step-path", {
       },
       value: props.attributes.section_heading,
       className: "section-heading-edit"
-    }), props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("ol", {
+      class: "explanation"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", null, "Design Image 1 - Top Left"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", null, "Design Image 2 - Middle Right"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", null, "Design Image 3 - Bottom Left"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", null, "Design Image 4 - Bottom Right")), props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-design-img-btns"
     }, props.attributes.designImgs.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-design-image"
@@ -1285,6 +1360,8 @@ registerBlockType("cert-blocks/three-step-path", {
     }, props.attributes.steps.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "three-step-container"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "image-content-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "image-container",
       style: {
         backgroundImage: `url('${previewImage[index]}')`
@@ -1313,7 +1390,9 @@ registerBlockType("cert-blocks/three-step-path", {
           size: "20"
         }), "\xA0", __(`Choose Image ${index + 1}`));
       }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "text-content-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "subheading-content-edit"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
       tagName: "div",
@@ -1339,7 +1418,7 @@ registerBlockType("cert-blocks/three-step-path", {
       },
       value: props.attributes.steps[index].paragraph ? props.attributes.steps[index].paragraph : `Paragraph for Step ${index + 1}`,
       className: "step-paragraph"
-    })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
+    }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
       allowedBlocks: ["core/paragraph"],
       className: "the-text-edit",
       placeholder: "Add Inner Block - Paragraph"
@@ -1347,7 +1426,7 @@ registerBlockType("cert-blocks/three-step-path", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-step-path-content"
+      className: props.attributes.options === "#FFF9F7" ? "three-step-path-content light-pink" : props.attributes.options === "#EEF8F7" ? "three-step-path-content light-green" : "three-step-path-content"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       className: "headline",
       tagName: "h2",
@@ -1448,7 +1527,9 @@ registerBlockType("cert-blocks/three-text-boxes", {
       className: "three-text-boxes-block-editor"
     }, props.attributes.notPreview && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "three-boxes-content"
-    }, props.attributes.boxes.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, props.attributes.boxes.map((empty, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "each-text-box"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "box-heading-text-edit"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       tagName: "div",
@@ -1533,6 +1614,10 @@ registerBlockType("cert-blocks/two-images-with-captions", {
       type: "array",
       default: []
     },
+    image_url: {
+      type: "string",
+      default: "Select Image"
+    },
     imageCount: {
       type: "number",
       default: 0
@@ -1587,7 +1672,7 @@ registerBlockType("cert-blocks/two-images-with-captions", {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "image-container"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: props.attributes.images[index].image_url
+      src: props.attributes.images[index].image_url === "Select Image" ? `${previewImage}` : props.attributes.images[index].image_url
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
       onSelect: media => {
         const new_images = [...props.attributes.images];

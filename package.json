@@ -13,5 +13,8 @@
   "devDependencies": {
     "@wordpress/scripts": "^22.5.0",
     "sass": "^1.50.1"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
   }
 }

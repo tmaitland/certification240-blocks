@@ -48,7 +48,9 @@ registerBlockType("cert-blocks/img-left-content-right", {
        
         return (
 
-                <div className="imgl-contentr-wp-block-editor">
+                <div className={props.attributes.options === "#EEF8F7" 
+                ? "imgl-contentr-wp-block-editor light-green" 
+                : "imgl-contentr-wp-block-editor light-pink"}>
                    <div className="edit-image-button">
                     <MediaUploadCheck>
                         <MediaUpload 
@@ -94,9 +96,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
                                 />
                                 
                         </div>
-                        <div className={props.attributes.options === "#EEF8F7" 
-                            ? "hold-content light-green" 
-                            : "hold-content light-pink" }>
+                        <div className="hold-content">
                             <div className={props.attributes.image_height === "388px" 
                                             ? "hold-image short" 
                                             : "hold-image tall"} 

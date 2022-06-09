@@ -97,7 +97,6 @@ registerBlockType("cert-blocks/left-right-content-switch", {
 
     save: (props) => {
         const feImageStyles = {
-            width: "412px",
             height: "494px",
             objectFit: "cover",
             objectPosition: "center"

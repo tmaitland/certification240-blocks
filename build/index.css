@@ -38,6 +38,7 @@
 /*landing header block editor styles */
 .full-header-wp-block-editor {
   border: 1px solid rgb(94, 94, 94);
+  margin: 2rem 0rem;
 }
 .full-header-wp-block-editor .landing-header-image {
   box-shadow: 0px 0px 70px 0px rgb(255, 255, 255) inset;
@@ -50,8 +51,9 @@
   grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  width: 50%;
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), transparent);
+  width: 60%;
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), transparent);
+  color: rgb(75, 75, 75);
 }
 .full-header-wp-block-editor .landing-header-image .contain-text .head-heading {
   align-self: flex-end;
@@ -61,11 +63,12 @@
       grid-row-start: 1;
   -ms-grid-row-span: 0;
   grid-row-end: 1;
-  height: 60px;
+  height: auto;
   background: transparent;
   margin: 0rem 0rem 1rem 1rem;
   width: 85%;
   font-family: "Tiempos Headline";
+  font-size: 30px;
 }
 .full-header-wp-block-editor .landing-header-image .contain-text .head-paragraph {
   align-self: flex-start;
@@ -75,7 +78,7 @@
       grid-row-start: 2;
   -ms-grid-row-span: 0;
   grid-row-end: 2;
-  height: 135px;
+  height: auto;
   background: transparent;
   margin: 0rem 0rem 1rem 1rem;
   width: 85%;
@@ -91,15 +94,29 @@
 }
 
 /*three image breaker block editor styles */
+.three-images-block-editor.light-pink {
+  background-color: #FFF9F7;
+}
+
+.three-images-block-editor.light-green {
+  background-color: #EEF8F7;
+}
+
 .three-images-block-editor {
-  margin: 4rem 0rem;
+  margin: 2rem 0rem;
+  background-color: transparent;
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
 }
 .three-images-block-editor .section-heading-edit {
   margin: 1rem 0rem;
   font-family: "Tiempos Headline";
+  text-align: center;
+  font-size: 30px;
 }
 .three-images-block-editor .image-heading {
   font-family: "Nunito Sans";
+  font-weight: 500;
 }
 .three-images-block-editor .image-container {
   width: 300px;
@@ -118,6 +135,20 @@
 
 /*General Information Text block editor styles */
 /*Image Left Content Right block editor styles */
+.imgl-contentr-wp-block-editor.light-green {
+  background-color: #EEF8F7;
+}
+
+.imgl-contentr-wp-block-editor.light-pink {
+  background-color: #FFF9F7;
+}
+
+.imgl-contentr-wp-block-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+  height: auto;
+}
 .imgl-contentr-wp-block-editor .edit-image-button .components-button {
   border: 1px solid rgb(75, 75, 75);
   border-radius: 9px;
@@ -128,14 +159,6 @@
 .imgl-contentr-wp-block-editor .edit-imgl-contentr .radio-select {
   margin: 2rem 0rem;
   height: 200px;
-}
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content.light-green {
-  background-color: #EEF8F7;
-  height: auto;
-}
-.imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content.light-pink {
-  background-color: #FFF9F7;
-  height: auto;
 }
 .imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content {
   display: block;
@@ -178,26 +201,62 @@
 }
 
 /*Three Text Boxes block editor styles */
-.three-text-boxes-block-editor .three-boxes-content .box-heading-text-edit {
-  height: 60px;
+.three-text-boxes-block-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
+.three-text-boxes-block-editor .three-boxes-content .each-text-box {
+  width: 400px;
+  height: auto;
+  margin-bottom: 2rem;
+  padding: 2.5rem 1rem;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+.three-text-boxes-block-editor .three-boxes-content .each-text-box .box-heading-text-edit {
+  height: auto;
   background: transparent;
   font-family: "Tiempos Headline";
   margin-left: 1rem;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(243, 112, 55);
+  margin-bottom: 1rem;
 }
-.three-text-boxes-block-editor .three-boxes-content .box-paragraph-edit {
+.three-text-boxes-block-editor .three-boxes-content .each-text-box .box-paragraph-edit {
   margin-bottom: 2rem;
   margin-left: 1rem;
-  height: 135px;
+  height: auto;
   background: transparent;
   font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
 }
 
 /*Text Header CTA block editor styles */
+.text-hero-cta-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
+.text-hero-cta-editor .hold-content-edit.light-pink {
+  background-color: #FFF9F7;
+}
+.text-hero-cta-editor .hold-content-edit.light-green {
+  background-color: #EEF8F7;
+}
+.text-hero-cta-editor .hold-content-edit {
+  padding: 2rem 0rem;
+}
 .text-hero-cta-editor .hold-content-edit .text-heading-edit {
-  height: 60px;
+  height: auto;
   margin: 2rem 2rem 1rem 1rem;
   background: transparent;
   font-family: "Tiempos Headline";
+  color: rgb(75, 75, 75);
+  text-align: center;
+  font-size: 30px;
+  padding: 2rem 0rem;
 }
 .text-hero-cta-editor .hold-content-edit .cta-button {
   width: auto;
@@ -206,12 +265,40 @@
 }
 
 /*Three Step Path block editor styles*/
+.three-step-path-block-editor.light-pink {
+  background-color: #FFF9F7;
+}
+
+.three-step-path-block-editor.light-green {
+  background-color: #EEF8F7;
+}
+
+.three-step-path-block-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  background-color: transparent;
+  margin: 2rem 0rem;
+}
 .three-step-path-block-editor .section-heading-edit {
-  height: 60px;
+  height: auto;
   margin: 2rem 2rem 1rem 1rem;
   background: transparent;
   font-family: "Tiempos Headline";
   padding: 1rem;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(75, 75, 75);
+}
+.three-step-path-block-editor ol.explanation {
+  display: flex;
+  justify-content: space-evenly;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+.three-step-path-block-editor ol.explanation li {
+  font-family: "Nunito Sans";
+  font-size: 12px;
+  color: rgb(75, 75, 75);
 }
 .three-step-path-block-editor .hold-design-img-btns {
   margin: 2rem 0rem;
@@ -239,36 +326,50 @@
   border-radius: 9px;
 }
 .three-step-path-block-editor .three-step-content-edit .three-step-container {
-  border-bottom: 1px solid rgb(94, 94, 94);
+  border-radius: 30px;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  background: rgb(255, 255, 255);
   margin: 1rem;
+  display: flex;
 }
-.three-step-path-block-editor .three-step-content-edit .three-step-container .image-container {
-  height: 300px;
-  width: 300px;
+.three-step-path-block-editor .three-step-content-edit .three-step-container .image-content-container .image-container {
+  height: 150px;
+  width: 150px;
   background-size: contain;
   margin: 1rem 0rem;
 }
-.three-step-path-block-editor .three-step-content-edit .three-step-container .subheading-content-edit .step-heading {
+.three-step-path-block-editor .three-step-content-edit .three-step-container .text-content-container .subheading-content-edit .step-heading {
   margin-bottom: 0.25rem;
   height: auto;
   background: transparent;
   font-family: "Nunito Sans";
   padding: 1rem;
+  color: rgb(75, 75, 75);
 }
-.three-step-path-block-editor .three-step-content-edit .three-step-container .paragraph-content-edit {
+.three-step-path-block-editor .three-step-content-edit .three-step-container .text-content-container .paragraph-content-edit {
   margin-bottom: 3rem;
 }
-.three-step-path-block-editor .three-step-content-edit .three-step-container .paragraph-content-edit .step-paragraph {
+.three-step-path-block-editor .three-step-content-edit .three-step-container .text-content-container .paragraph-content-edit .step-paragraph {
   margin-bottom: 2rem;
   height: auto;
   background: transparent;
   font-family: "Nunito Sans";
   padding: 1rem;
+  color: rgb(75, 75, 75);
 }
 
 /*Article with image block editor styles*/
+.article-with-image-block-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
 .article-with-image-block-editor .edit-article-text .article-heading-edit {
   font-family: "Tiempos Headline";
+  color: rgb(75, 75, 75);
+  font-size: 30px;
+  text-align: center;
 }
 .article-with-image-block-editor .edit-article-text .media-button {
   margin: 1rem 0rem;
@@ -295,11 +396,22 @@
 }
 
 /*Blockquote block editor styles*/
+.blockquote-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
 .blockquote-editor span {
   font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
 }
 
 /* Two Images with Captions block editor styles */
+.two-images-with-caption-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
 .two-images-with-caption-editor .hold-content {
   display: flex;
 }
@@ -309,7 +421,14 @@
 }
 .two-images-with-caption-editor .hold-content .each-content .image-container {
   border: 1px solid rgb(75, 75, 75);
-  border-radius: 30px;
+}
+.two-images-with-caption-editor .hold-content .each-content .image-container img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .two-images-with-caption-editor .hold-content .each-content .image-button-selector {
   border: 1px solid rgb(75, 75, 75);
@@ -322,6 +441,8 @@
 
 /* Left Right Content Switch block editor styles */
 .left-right-content-switch-editor {
+  border: 1px solid rgb(94, 94, 94);
+  padding: 1rem;
   margin: 2rem 0rem;
 }
 .left-right-content-switch-editor .hold-content-switch.img-left {
@@ -395,6 +516,7 @@
   background-repeat: no-repeat;
   background-position: right;
   position: relative;
+  z-index: -1;
 }
 .landing-header .header-img-bg .hold-text-btn {
   height: 100%;
@@ -440,8 +562,21 @@
 }
 
 /*three image breaker block frontend styles */
+.three-images-wp-block.light-pink {
+  background-color: #FFF9F7;
+}
+
+.three-images-wp-block.light-green {
+  background-color: #EEF8F7;
+}
+
 .three-images-wp-block {
   padding: 2rem;
+  background-color: transparent;
+  border-radius: 300%/20% 20% 5% 90%;
+  padding: 6rem 0rem;
+  margin-top: -4rem;
+  z-index: 1;
 }
 .three-images-wp-block .headline {
   text-align: center;
@@ -469,10 +604,12 @@
   font-weight: 500;
   padding: 1.5rem 2rem;
   margin-bottom: 0px;
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
 }
 .three-images-wp-block .three-images-container .image-link .the-image {
   height: 384px;
-  width: 384px;
+  width: 400px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0px 0px 30px 30px;
@@ -530,6 +667,7 @@
   justify-content: center;
   align-items: center;
   margin: 8rem 0rem;
+  border-radius: 160%/20% 20% 20% 20%;
 }
 .img-left-content-right .image-hold {
   background-position: center;
@@ -612,13 +750,23 @@
 }
 
 /*Text Header CTA block frontend styles */
+.text-hero-cta.light-pink {
+  background-color: #FFF9F7;
+}
+
+.text-hero-cta.light-green {
+  background-color: #EEF8F7;
+}
+
 .text-hero-cta {
-  margin-bottom: 3rem;
-  height: 400px;
+  margin-bottom: 0rem;
+  height: 500px;
+  border-radius: 160%/20% 20% 20% 20%;
+  padding: 5rem 0rem 4rem;
 }
 .text-hero-cta .hold-content {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   height: 100%;
@@ -628,7 +776,7 @@
   margin-bottom: 2rem;
   font-family: "Tiempos Headline";
   text-transform: capitalize;
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 600;
   line-height: initial;
   color: rgb(75, 75, 75);
@@ -648,9 +796,20 @@
 }
 
 /*Three Step Path block frontend styles*/
+.three-step-path-content.light-pink {
+  background-color: #FFF9F7;
+}
+
+.three-step-path-content.light-green {
+  background-color: #EEF8F7;
+}
+
 .three-step-path-content {
   margin: 10rem 0rem 3rem 0rem;
   position: relative;
+  background-color: transparent;
+  border-radius: 300%/20% 20% 5% 44%;
+  padding: 5rem 0rem;
   /*top-left*/
   /*middle-right*/
   /*bottom-left*/
@@ -699,6 +858,7 @@
   align-items: center;
   border-radius: 40px;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  background-color: rgb(255, 255, 255);
 }
 .three-step-path-content .hold-steps-content .each-step .step-image {
   height: 200px;
@@ -843,9 +1003,9 @@
   margin: 0rem 3rem;
 }
 .two-images-with-captions .hold-the-images-captions .each-image-caption .the-image img {
-  width: 569px;
+  width: 500px;
   height: 380px;
-  border-radius: 40px;
+  border-radius: 30px;
   box-shadow: -1px 2px 20px rgba(35, 35, 35, 0.15);
   -o-object-fit: cover;
      object-fit: cover;
@@ -859,7 +1019,7 @@
   display: block;
 }
 .two-images-with-captions .hold-the-images-captions .each-image-caption .the-text {
-  width: 569px;
+  width: 500px;
   height: auto;
   margin-top: 1.5rem;
 }
@@ -888,20 +1048,23 @@
   justify-content: center;
 }
 .left-right-content-switch .hold-content .hold-image {
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: center;
+  margin: 0rem 1rem;
 }
 .left-right-content-switch .hold-content .hold-image img {
-  border-radius: 45px;
+  border-radius: 40px;
+  width: 100%;
 }
 .left-right-content-switch .hold-content .hold-text {
-  width: 700px;
+  width: 650px;
 }
 .left-right-content-switch .hold-content .hold-text p {
   color: rgb(75, 75, 75);
   font-size: 18px;
   font-family: "Nunito Sans";
+  padding: 1rem 1.5rem;
 }
 
 /*Display Tabs block frontend styles */

@@ -114,7 +114,7 @@ registerBlockType("cert-blocks/landing-header", {
 			backgroundImage: `url(${props.attributes.image_url})`
 		};
       return(
-        <div className="landing-header">
+        <div className="landing-header" data-aos="fade-in">
             <div
                 className="header-img-bg"
                 style={headerImageCSS}

@@ -14,6 +14,10 @@ registerBlockType("cert-blocks/two-images-with-captions", {
             type: "array",
             default: []
         },
+        image_url: {
+            type: "string",
+            default: "Select Image"
+        },
         imageCount: {
 			type: "number",
 			default: 0
@@ -68,7 +72,9 @@ registerBlockType("cert-blocks/two-images-with-captions", {
                             <Fragment>
                                 <div className="each-content">
                                     <div className="image-container">
-                                        <img src={props.attributes.images[index].image_url} />
+                                        <img src={props.attributes.images[index].image_url === "Select Image" 
+                                            ? `${previewImage}` 
+                                            : props.attributes.images[index].image_url} />
                                     </div>
                                     <MediaUploadCheck>
                                         <MediaUpload

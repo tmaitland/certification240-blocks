@@ -62,11 +62,80 @@
         }
     }
 }
-@media (max-width: 1610px) {
+@media (max-width: 1690px) {
 .landing-header {
     .header-img-bg {
         .hold-text-btn {
-            padding-left: 10rem;   
+            padding-left: 10rem; 
+            .landing-heading {
+                font-size: 60px;
+            }  
+        }
+    }
+}
+
+}
+@media (max-width: 1483px) {
+.landing-header {
+    .header-img-bg {
+        height: 500px;
+        box-shadow: inset -200px 0px 80px $white;
+        .hold-text-btn {
+            padding-left: 8rem; 
+            .landing-heading {
+                font-size: 55px;
+            }  
+            .landing-paragraph {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+}
+@media (max-width: 1333px) {
+.landing-header {
+    .header-img-bg {
+        height: 500px;
+        box-shadow: inset -200px 0px 80px $white;
+        .hold-text-btn {
+            padding-left: 8rem; 
+            .landing-heading {
+                font-size: 45px;
+            }  
+            .landing-paragraph {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+}
+@media (max-width: 1138px) {
+.landing-header {
+    .header-img-bg {
+        height: 450px;
+        box-shadow: inset -150px 0px 80px $white;
+        .hold-text-btn {
+            padding-left: 4rem;
+        }
+    }
+}
+
+}
+@media (max-width: 1031px) {
+.landing-header {
+    .header-img-bg {
+        height: 420px;
+        box-shadow: inset -150px 0px 80px $white;
+        .hold-text-btn {
+            padding-left: 0rem;
+            .landing-heading {
+                font-size: 45px;
+            }  
+            .landing-paragraph {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -133,6 +202,28 @@
                 font-family: $bodyFont;
                 font-size: 18px;
                 color: $brandBlack;
+            }
+        }
+    }
+}
+@media (max-width: 1650px) {
+    .three-images-wp-block {
+        .three-images-container {
+            .image-link {
+                margin: 0rem 1rem;
+            }
+        }
+    }
+}
+@media (max-width: 1500px) {
+    .three-images-wp-block {
+        .three-images-container {
+            .image-link {
+                margin: 0rem 1rem;
+                .the-image {
+                    height: 370px;
+                    width: 360px;
+                }
             }
         }
     }

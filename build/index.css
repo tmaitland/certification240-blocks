@@ -562,9 +562,66 @@
   background-color: rgb(75, 75, 75) !important;
 }
 
-@media (max-width: 1610px) {
+@media (max-width: 1690px) {
   .landing-header .header-img-bg .hold-text-btn {
     padding-left: 10rem;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-heading {
+    font-size: 60px;
+  }
+}
+@media (max-width: 1483px) {
+  .landing-header .header-img-bg {
+    height: 500px;
+    box-shadow: inset -200px 0px 80px rgb(255, 255, 255);
+  }
+  .landing-header .header-img-bg .hold-text-btn {
+    padding-left: 8rem;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-heading {
+    font-size: 55px;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1333px) {
+  .landing-header .header-img-bg {
+    height: 500px;
+    box-shadow: inset -200px 0px 80px rgb(255, 255, 255);
+  }
+  .landing-header .header-img-bg .hold-text-btn {
+    padding-left: 8rem;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-heading {
+    font-size: 45px;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1138px) {
+  .landing-header .header-img-bg {
+    height: 450px;
+    box-shadow: inset -150px 0px 80px rgb(255, 255, 255);
+  }
+  .landing-header .header-img-bg .hold-text-btn {
+    padding-left: 4rem;
+  }
+}
+@media (max-width: 1031px) {
+  .landing-header .header-img-bg {
+    height: 420px;
+    box-shadow: inset -150px 0px 80px rgb(255, 255, 255);
+  }
+  .landing-header .header-img-bg .hold-text-btn {
+    padding-left: 0rem;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-heading {
+    font-size: 45px;
+  }
+  .landing-header .header-img-bg .hold-text-btn .landing-paragraph {
+    font-size: 18px;
   }
 }
 /*three image breaker block frontend styles */
@@ -634,6 +691,20 @@
   color: rgb(75, 75, 75);
 }
 
+@media (max-width: 1650px) {
+  .three-images-wp-block .three-images-container .image-link {
+    margin: 0rem 1rem;
+  }
+}
+@media (max-width: 1500px) {
+  .three-images-wp-block .three-images-container .image-link {
+    margin: 0rem 1rem;
+  }
+  .three-images-wp-block .three-images-container .image-link .the-image {
+    height: 370px;
+    width: 360px;
+  }
+}
 /*General Information Text block frontend styles */
 .hold-text-containers {
   display: flex;

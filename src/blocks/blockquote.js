@@ -26,7 +26,7 @@ registerBlockType("cert-blocks/blockquote", {
         const rightQuote = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/quote-right.png";
 
         return (
-            <div className="block-quote">
+            <div data-aos="fade-up" className="block-quote">
                 <div className="block-quote-content" >
                     <div className="quote-images">
                         <img src={leftQuote} className="left-qt-img" />

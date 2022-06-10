@@ -262,7 +262,7 @@ registerBlockType("cert-blocks/three-step-path", {
 
 		return(
 			<Fragment>
-				<div className={props.attributes.options === "#FFF9F7" ? "three-step-path-content light-pink"
+				<div data-aos="fade-up" className={props.attributes.options === "#FFF9F7" ? "three-step-path-content light-pink"
 								: props.attributes.options === "#EEF8F7" ? "three-step-path-content light-green"
 								: "three-step-path-content"}>
 					<RichText.Content 

@@ -103,7 +103,7 @@ registerBlockType("cert-blocks/left-right-content-switch", {
         }
 
         return (
-            <div className="left-right-content-switch">
+            <div data-aos="fade-up" className="left-right-content-switch">
             <div className={props.attributes.options === "Image Left"
                            ? "hold-content img-left"
                            : "hold-content img-right" 

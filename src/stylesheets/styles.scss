@@ -4,8 +4,9 @@
 .landing-header {
     mark {
         padding: 0em;
+        border-radius: 20px/15px 0px 15px 0px;
     }
-    margin-bottom: 2rem;
+    margin-bottom: -6rem;
     .header-img-bg {
         box-shadow: inset -250px 0px 80px $white;
         max-width: 100%;
@@ -74,7 +75,7 @@
     background-color: transparent; 
     border-radius: 300%/20% 20% 5% 90%;
     padding: 6rem 0rem;
-    margin-top: -4rem;
+    margin-top: 4rem;
     z-index: 1;
     .headline {
         text-align: center;
@@ -130,9 +131,10 @@
 /*General Information Text block frontend styles */
 .hold-text-containers {
     display: flex;
-    justify-content: center;   
+    justify-content: center; 
     .informational-text-container {
         width: 900px;
+        padding: 0rem 6rem;  
         p {
             font-size: 18px;
             font-family: $bodyFont;
@@ -230,6 +232,7 @@
             padding: 2rem 1rem;
             border-radius: 30px;
             box-shadow: 1px 2px 19px rgb(0 0 0 / 15%);
+            background-color: $white;
             height: auto;
             .box-heading {      
                 padding: 1rem 0rem;
@@ -259,8 +262,8 @@
     background-color: $lightGreen;
 }
 .text-hero-cta {
-    margin-bottom: 0rem;
-    height: 500px;
+    margin-bottom: -12rem;
+    height: 450px;
     border-radius: 160%/20% 20% 20% 20%;
     padding: 5rem 0rem 4rem;
     .hold-content {
@@ -304,7 +307,7 @@
     background-color: $lightGreen;
 }
 .three-step-path-content {
-    margin: 10rem 0rem 3rem 0rem;
+    margin: 3rem 0rem 3rem 0rem;
     position: relative;
     background-color: transparent;
     border-radius: 300%/20% 20% 5% 44%;
@@ -329,7 +332,7 @@
     }
     /*middle-right*/
     .img-2 {
-        top: 60%;
+        top: 50%;
         // right: 9%;
         right: 18%;
     }
@@ -378,6 +381,7 @@
                     font-family: $bodyFont;
                     font-size: 35px;
                     color: $brandOrange;
+                    font-weight: 600;
                 }
                 p {
                     font-family: $bodyFont;
@@ -410,7 +414,7 @@
     .article-with-image-content {
         width: auto;
         margin: 5rem 0rem;
-        padding: 0rem 10rem;
+        padding: 0rem 16rem;
         box-shadow: 1px 3px 15px rgb(0 0 0 / 15%);
         border-radius: 40px;
         .article-text-content {
@@ -579,4 +583,4 @@
     }
 }
 
-/*Display Tabs block frontend styles */
+

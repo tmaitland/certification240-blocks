@@ -54,7 +54,7 @@ registerBlockType("cert-blocks/general-info", {
         const blockProps = useBlockProps.save();
 
         return (
-        <div {...blockProps} className="hold-text-containers">
+        <div {...blockProps} data-aos="fade-up" className="hold-text-containers">
             <div  className="informational-text-container">
                 <RichText.Content 
                 tagName="p"

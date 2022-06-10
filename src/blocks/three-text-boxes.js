@@ -92,7 +92,7 @@ registerBlockType("cert-blocks/three-text-boxes", {
     save: (props) => {
         return(
             <Fragment>
-             <div className="three-text-boxes-wp-block">
+             <div data-aos="fade-up" className="three-text-boxes-wp-block">
                  <div className="three-text-boxes-container">
                       {props.attributes.boxes.map((box, index) => (	
                      <Fragment> 

@@ -179,7 +179,7 @@
   justify-content: center;
 }
 .imgl-contentr-wp-block-editor .edit-imgl-contentr .hold-content .hold-text .content-heading {
-  height: 60px;
+  height: auto;
   background: transparent;
   margin: 2rem 2rem 1rem 1rem;
   font-family: "Tiempos Headline";
@@ -502,10 +502,11 @@
 
 /*landing header block frontend styles */
 .landing-header {
-  margin-bottom: 2rem;
+  margin-bottom: -6rem;
 }
 .landing-header mark {
   padding: 0em;
+  border-radius: 20px/15px 0px 15px 0px;
 }
 .landing-header .header-img-bg {
   box-shadow: inset -250px 0px 80px rgb(255, 255, 255);
@@ -575,7 +576,7 @@
   background-color: transparent;
   border-radius: 300%/20% 20% 5% 90%;
   padding: 6rem 0rem;
-  margin-top: -4rem;
+  margin-top: 4rem;
   z-index: 1;
 }
 .three-images-wp-block .headline {
@@ -635,6 +636,7 @@
 }
 .hold-text-containers .informational-text-container {
   width: 900px;
+  padding: 0rem 6rem;
 }
 .hold-text-containers .informational-text-container p {
   font-size: 18px;
@@ -730,6 +732,7 @@
   padding: 2rem 1rem;
   border-radius: 30px;
   box-shadow: 1px 2px 19px rgba(0, 0, 0, 0.15);
+  background-color: rgb(255, 255, 255);
   height: auto;
 }
 .three-text-boxes-wp-block .three-text-boxes-container .each-box .box-heading {
@@ -759,8 +762,8 @@
 }
 
 .text-hero-cta {
-  margin-bottom: 0rem;
-  height: 500px;
+  margin-bottom: -12rem;
+  height: 450px;
   border-radius: 160%/20% 20% 20% 20%;
   padding: 5rem 0rem 4rem;
 }
@@ -805,7 +808,7 @@
 }
 
 .three-step-path-content {
-  margin: 10rem 0rem 3rem 0rem;
+  margin: 3rem 0rem 3rem 0rem;
   position: relative;
   background-color: transparent;
   border-radius: 300%/20% 20% 5% 44%;
@@ -831,7 +834,7 @@
   left: 18%;
 }
 .three-step-path-content .img-2 {
-  top: 60%;
+  top: 50%;
   right: 18%;
 }
 .three-step-path-content .img-3 {
@@ -876,6 +879,7 @@
   font-family: "Nunito Sans";
   font-size: 35px;
   color: rgb(243, 112, 55);
+  font-weight: 600;
 }
 .three-step-path-content .hold-steps-content .each-step .step-text p {
   font-family: "Nunito Sans";
@@ -904,7 +908,7 @@
 .article-with-image .article-with-image-content {
   width: auto;
   margin: 5rem 0rem;
-  padding: 0rem 10rem;
+  padding: 0rem 16rem;
   box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.15);
   border-radius: 40px;
 }
@@ -1066,8 +1070,6 @@
   font-family: "Nunito Sans";
   padding: 1rem 1.5rem;
 }
-
-/*Display Tabs block frontend styles */
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/

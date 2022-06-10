@@ -103,6 +103,7 @@ registerBlockType("cert-blocks/article-with-image", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      "data-aos": "fade-up",
       className: "article-with-image"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "article-with-image-content"
@@ -165,6 +166,7 @@ registerBlockType("cert-blocks/blockquote", {
     const leftQuote = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/quote-left.png";
     const rightQuote = wpScriptsGlobal.pluginDirUrl + "cert-blocks/src/images/quote-right.png";
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      "data-aos": "fade-up",
       className: "block-quote"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "block-quote-content"
@@ -331,6 +333,7 @@ registerBlockType("cert-blocks/general-info", {
   save: props => {
     const blockProps = useBlockProps.save();
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      "data-aos": "fade-up",
       className: "hold-text-containers"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "informational-text-container"
@@ -512,6 +515,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
       backgroundSize: 'cover'
     };
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      "data-aos": "fade-up",
       className: props.attributes.options === "#EEF8F7" ? "img-left-content-right light-green" : "img-left-content-right light-pink"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: props.attributes.image_height === "388px" ? "image-hold short" : "image-hold tall",
@@ -817,6 +821,7 @@ registerBlockType("cert-blocks/left-right-content-switch", {
       objectPosition: "center"
     };
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      "data-aos": "fade-up",
       className: "left-right-content-switch"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: props.attributes.options === "Image Left" ? "hold-content img-left" : "hold-content img-right"
@@ -917,6 +922,7 @@ registerBlockType("cert-blocks/text-hero-cta", {
   save: props => {
     const blockProps = useBlockProps.save();
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
+      "data-aos": "fade-in",
       className: props.attributes.options === "#FFF9F7" ? "text-hero-cta light-pink" : "text-hero-cta light-green"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-content"
@@ -1135,13 +1141,15 @@ registerBlockType("cert-blocks/three-images", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      "data-aos": "fade-up",
+      "data-aos-delay": "200",
       className: props.attributes.options === "#FFF9F7" ? "three-images-wp-block light-pink" : props.attributes.options === "#EEF8F7" ? "three-images-wp-block light-green" : "three-images-wp-block"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       className: "headline",
       tagName: "h2",
       value: props.attributes.section_heading
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "three-images-container animate__animated animate__slideInLeft"
+      className: "three-images-container"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, props.attributes.images.map((image, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
       className: "image-link",
       href: props.attributes.images[index].link
@@ -1426,6 +1434,7 @@ registerBlockType("cert-blocks/three-step-path", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      "data-aos": "fade-up",
       className: props.attributes.options === "#FFF9F7" ? "three-step-path-content light-pink" : props.attributes.options === "#EEF8F7" ? "three-step-path-content light-green" : "three-step-path-content"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
       className: "headline",
@@ -1557,6 +1566,7 @@ registerBlockType("cert-blocks/three-text-boxes", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      "data-aos": "fade-up",
       className: "three-text-boxes-wp-block"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "three-text-boxes-container"
@@ -1725,6 +1735,7 @@ registerBlockType("cert-blocks/two-images-with-captions", {
   },
   save: props => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      "data-aos": "fade-up",
       className: "two-images-with-captions"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "hold-the-images-captions"

@@ -140,7 +140,7 @@ registerBlockType("cert-blocks/two-images-with-captions", {
 
     save: (props) => {
         return (
-          <div className="two-images-with-captions">
+          <div data-aos="fade-up" className="two-images-with-captions">
               <div className="hold-the-images-captions">
                   {props.attributes.images.map((image, index)=> (
                       <div className="each-image-caption">

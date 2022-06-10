@@ -145,7 +145,7 @@ registerBlockType("cert-blocks/img-left-content-right", {
 		};
 
         return (
-            <div {...blockProps} 
+            <div {...blockProps} data-aos="fade-up" 
                 className={props.attributes.options === "#EEF8F7" 
                 ? "img-left-content-right light-green" 
                 : "img-left-content-right light-pink" }>

@@ -79,7 +79,7 @@ registerBlockType("cert-blocks/article-with-image", {
     },
     save: (props) => {
         return (
-            <div className="article-with-image">
+            <div data-aos="fade-up" className="article-with-image">
                 <div className="article-with-image-content">
                     <div className="article-text-content">
                         <h2><RichText.Content value={props.attributes.heading} /></h2>

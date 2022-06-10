@@ -201,7 +201,7 @@ registerBlockType("cert-blocks/three-images", {
     save: (props) => {
         return(
            <Fragment>
-            <div className={props.attributes.options === "#FFF9F7" ? "three-images-wp-block light-pink"
+            <div data-aos="fade-up" data-aos-delay="200" className={props.attributes.options === "#FFF9F7" ? "three-images-wp-block light-pink"
                             : props.attributes.options === "#EEF8F7" ? "three-images-wp-block light-green"
                             : "three-images-wp-block"}>
                 <RichText.Content 
@@ -210,7 +210,7 @@ registerBlockType("cert-blocks/three-images", {
                  value={props.attributes.section_heading} 
                  
                 />
-                <div className="three-images-container animate__animated animate__slideInLeft">
+                <div className="three-images-container">
                     <Fragment>
                      {props.attributes.images.map((image, index) => (	
                         <a className="image-link"

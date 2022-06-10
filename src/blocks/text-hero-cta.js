@@ -65,7 +65,7 @@ registerBlockType("cert-blocks/text-hero-cta", {
         const blockProps = useBlockProps.save();
 
         return (
-            <div {...blockProps} className={props.attributes.options === "#FFF9F7" ? "text-hero-cta light-pink" : "text-hero-cta light-green"}>
+            <div {...blockProps} data-aos="fade-in" className={props.attributes.options === "#FFF9F7" ? "text-hero-cta light-pink" : "text-hero-cta light-green"}>
                 <div className="hold-content">
                      {/*Display Header Text*/}
                      <RichText.Content

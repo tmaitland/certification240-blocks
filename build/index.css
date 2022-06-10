@@ -562,6 +562,11 @@
   background-color: rgb(75, 75, 75) !important;
 }
 
+@media (max-width: 1610px) {
+  .landing-header .header-img-bg .hold-text-btn {
+    padding-left: 10rem;
+  }
+}
 /*three image breaker block frontend styles */
 .three-images-wp-block.light-pink {
   background-color: #FFF9F7;
@@ -899,6 +904,24 @@
   color: rgb(75, 75, 75);
 }
 
+@media (max-width: 1610px) {
+  .three-step-path-content .img-1 {
+    top: 26%;
+    left: 12%;
+  }
+  .three-step-path-content .img-2 {
+    top: 50%;
+    right: 12%;
+  }
+  .three-step-path-content .img-3 {
+    left: 13%;
+    bottom: 36%;
+  }
+  .three-step-path-content .img-4 {
+    bottom: 16%;
+    right: 14%;
+  }
+}
 /*Article with image block frontend styles*/
 .article-with-image {
   display: flex;

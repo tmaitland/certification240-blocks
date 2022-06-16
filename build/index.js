@@ -1133,7 +1133,20 @@ registerBlockType("cert-blocks/three-images", {
           size: "20"
         }), "\xA0", __(`Choose Image ${index + 1}`));
       }
-    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("hr", null)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText, {
+      tagName: "div",
+      className: "img-paragraph-edit",
+      value: props.attributes.images[index].paragraph,
+      onChange: new_val => {
+        const new_images = [...props.attributes.images];
+        new_images[index].paragraph = new_val;
+        props.setAttributes({
+          images: new_images
+        });
+      },
+      placeholder: `Enter Paragraph ${index + 1}`,
+      index: index
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("hr", null)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("label", null, "Add Inner Block - Paragraph"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InnerBlocks, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, useBlockProps, {
       allowedBlocks: ["core/paragraph"],
       className: "the-text-edit",
       placeholder: "Add Inner Block - Paragraph"
@@ -1162,7 +1175,11 @@ registerBlockType("cert-blocks/three-images", {
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
       className: "the-image",
       src: props.attributes.images[index].image_url
-    })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "the-paragraph"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RichText.Content, {
+      value: props.attributes.images[index].paragraph
+    }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "hold-extra-text"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "the-text"

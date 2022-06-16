@@ -178,6 +178,19 @@ registerBlockType("cert-blocks/three-images", {
                                             )}
                                         />
                                     </MediaUploadCheck> 
+                                    <RichText 
+                                        tagName="div"
+                                        className="img-paragraph-edit"
+                                        value={props.attributes.images[index].paragraph}
+                                        onChange={(new_val) => {
+                                            const new_images = [...props.attributes.images];
+                                            new_images[index].paragraph = new_val;
+                                            props.setAttributes({ images: new_images });
+                                        }}
+                                        placeholder={`Enter Paragraph ${
+                                            index + 1 }`}
+                                        index={index}    
+                                    />
                                 </div>
                             </div>
                             <hr/>
@@ -220,6 +233,9 @@ registerBlockType("cert-blocks/three-images", {
                             /></h3>
                             <div className="hold-image">
                                 <img className="the-image" src={props.attributes.images[index].image_url} />
+                                <div className="the-paragraph">
+                                    <RichText.Content value={props.attributes.images[index].paragraph} />
+                                </div>
                             </div>
                         </a>
            

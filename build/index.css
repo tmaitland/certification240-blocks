@@ -132,6 +132,11 @@
   border: 1px solid rgb(75, 75, 75);
   border-radius: 6px;
 }
+.three-images-block-editor .image-data-container .img-paragraph-edit {
+  margin: 1.2rem 0rem;
+  font-family: "Nunito Sans";
+  color: rgb(75, 75, 75);
+}
 
 /*General Information Text block editor styles */
 /*Image Left Content Right block editor styles */
@@ -738,6 +743,12 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0px 0px 30px 30px;
+}
+.three-images-wp-block .three-images-container .image-link .the-paragraph {
+  padding: 2rem 3rem;
+  width: 400px;
+  color: rgb(75, 75, 75);
+  font-family: "Nunito Sans";
 }
 .three-images-wp-block .hold-extra-text {
   display: flex;

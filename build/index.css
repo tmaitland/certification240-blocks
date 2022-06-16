@@ -2,6 +2,11 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/editor.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+mark {
+  padding: 0em;
+  border-radius: 20px/15px 0px 15px 0px;
+}
+
 @font-face {
   font-family: "Tiempos Headline";
   src: url(fonts/TiemposHeadline-Bold.c364862c.otf);
@@ -478,6 +483,11 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/styles.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+mark {
+  padding: 0em;
+  border-radius: 20px/15px 0px 15px 0px;
+}
+
 @font-face {
   font-family: "Tiempos Headline";
   src: url(fonts/TiemposHeadline-Bold.c364862c.otf);
@@ -507,11 +517,9 @@
 
 /*landing header block frontend styles */
 .landing-header {
+  position: relative;
+  z-index: 99;
   margin-bottom: -6rem;
-}
-.landing-header mark {
-  padding: 0em;
-  border-radius: 20px/15px 0px 15px 0px;
 }
 .landing-header .header-img-bg {
   box-shadow: inset -250px 0px 80px rgb(255, 255, 255);
@@ -555,11 +563,14 @@
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button {
   margin-left: 2rem;
+  cursor: pointer;
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button a.wp-block-button__link {
   padding: 0.75rem 3rem;
   font-family: "Nunito Sans";
+  cursor: pointer;
   font-size: 20px;
+  z-index: 9999;
   color: rgb(255, 255, 255);
 }
 .landing-header .header-img-bg .hold-text-btn .wp-block-button a.wp-block-button__link:hover {
@@ -1981,6 +1992,11 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/stylesheets/reusable.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/
 /*variables*/
+mark {
+  padding: 0em;
+  border-radius: 20px/15px 0px 15px 0px;
+}
+
 @font-face {
   font-family: "Tiempos Headline";
   src: url(fonts/TiemposHeadline-Bold.c364862c.otf);

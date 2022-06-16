@@ -8,6 +8,11 @@ $lightPink: #FFF9F7;
 $headingFont: "Tiempos Headline";
 $bodyFont: "Nunito Sans";
 
+mark {
+  padding: 0em;
+  border-radius: 20px/15px 0px 15px 0px;
+}
+
 @font-face {
     font-family: "Tiempos Headline" ;
     src: url("../fonts/TiemposHeadline/TiemposHeadline-Bold.otf");

@@ -2,10 +2,8 @@
 
 /*landing header block frontend styles */
 .landing-header {
-    mark {
-        padding: 0em;
-        border-radius: 20px/15px 0px 15px 0px;
-    }
+    position: relative;
+    z-index: 99;
     margin-bottom: -6rem;
     .header-img-bg {
         box-shadow: inset -250px 0px 80px $white;
@@ -47,10 +45,13 @@
             }
             .wp-block-button {
                 margin-left: 2rem;
+                cursor: pointer;
                 a.wp-block-button__link { 
                     padding: 0.75rem 3rem;
                     font-family: $bodyFont;
+                    cursor: pointer;
                     font-size: 20px;
+                    z-index: 9999;
                     color: $white;
                     &:hover {
                         text-decoration: none;
